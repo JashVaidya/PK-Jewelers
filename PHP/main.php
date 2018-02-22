@@ -5,10 +5,15 @@
  * Time: 11:32 PM
  */
  
-$servername = "localhost";
+//I got this code from w3 schools -Jackie
+
+
+$servername = "pkjeweldb.cpw1gobwezg5.us-east-2.rds.amazonaws.com";
 $username = "pkMUser";
 $password = "Fellowship123";
-$dbName
+$dbName = "PKJdb";
+// The database instance name is pkjewelDB but the database name is PKJdb 
+// so idk which we should use -Jackie
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbName);
