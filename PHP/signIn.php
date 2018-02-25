@@ -7,9 +7,6 @@ ini_set('display_errors', '1');
 define("SALT", 'ASDGasdfvartWFGSD#$5t2345HFDSY45yw4rget4312');
 $output = "";
 
-//Simple info dump to check values -- Will be deleted later
-var_dump(crypt($_REQUEST['password'], SALT));
-
 //Executes if statement if the user has entered a email and password
 if (isset($_POST['email']) && $_POST['pass'] != null) {
     //Creates a PDO database object that has the credentials of the database login
@@ -19,14 +16,12 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
 
     //Queries the database for some info, in this case, all of the columns. This is not important right now, will change later on when known columns are needed
     $qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
-    $qr->execute(array($_REQUEST['email']));
+    $qr->execute(array($_POST['email']));
 
-    //Returns true if the user is found
+    //Returns true if the user is found in the database
     if ($userDetails = $qr->fetch(PDO::FETCH_ASSOC)) {
-        var_dump($userDetails['passwordHash']);
         //Compares the password input by the user and the one stored in the database. Both passwords are salted so the actual password will never be known by anyone except the user who created it
-        //Currently not working. It allows users with the wrong password access to the profile page. Working on a fix.
-        if (hash_equals($userDetails['passwordHash'], crypt($_REQUEST['pass'], SALT))) {
+        if (hash_equals($userDetails['passwordHash'], crypt($_POST['pass'], SALT))) {
             $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
         } else {
@@ -35,7 +30,6 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
     } else {
         $output = "User not found.";
     }
-    var_dump($_REQUEST);
 }
 ?>
 
@@ -74,9 +68,9 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                         <a href="../index.html" class="navbar-item">
                             Home
                         </a>
-                        <a class="navbar-item">
-                            About us
-                        </a>
+<!--                        <a class="navbar-item">-->
+<!--                            About us-->
+<!--                        </a>-->
                         <a class="navbar-item is-active">
                             Sign In
                         </a>
@@ -96,12 +90,14 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                     <form name="form-signin" method="POST" action="./signIn.php">
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="email" placeholder="Your Email" name="email" id="email" autofocus="">
+                                <input class="input is-large" type="email" placeholder="Your Email" name="email"
+                                       id="email" autofocus="">
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="password" placeholder="Your Password" name="pass" id="pass">
+                                <input class="input is-large" type="password" placeholder="Your Password" name="pass"
+                                       id="pass">
                             </div>
                         </div>
                         <div class="field">
