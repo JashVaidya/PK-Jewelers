@@ -1,3 +1,44 @@
+<?php
+//Shows errors on the page
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+//Defining the salting encryption standard
+define("SALT", 'ASDGasdfvartWFGSD#$5t2345HFDSY45yw4rget4312');
+$output = "";
+
+//Simple info dump to check values -- Will be deleted later
+var_dump(crypt($_REQUEST['password'], SALT));
+
+//Executes if statement if the user has entered a email and password
+if (isset($_POST['email']) && $_POST['pass'] != null) {
+    //Creates a PDO database object that has the credentials of the database login
+    $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //Queries the database for some info, in this case, all of the columns. This is not important right now, will change later on when known columns are needed
+    $qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
+    $qr->execute(array($_REQUEST['email']));
+
+    //Returns true if the user is found
+    if ($userDetails = $qr->fetch(PDO::FETCH_ASSOC)) {
+        var_dump($userDetails['passwordHash']);
+        //Compares the password input by the user and the one stored in the database. Both passwords are salted so the actual password will never be known by anyone except the user who created it
+        //Currently not working. It allows users with the wrong password access to the profile page. Working on a fix.
+        if (hash_equals($userDetails['passwordHash'], crypt($_REQUEST['pass'], SALT))) {
+            $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+        } else {
+            $output = "Password does not match.";
+        }
+    } else {
+        $output = "User not found.";
+    }
+    var_dump($_REQUEST);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +48,6 @@
     <title>Login </title>
     <!--<link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">-->
     <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/lux/bulmaswatch.min.css">
-
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
     <script src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
@@ -15,6 +55,7 @@
 <body>
 <section class="hero is-white is-fullheight">
     <!-- Hero head: will stick at the top -->
+    <?php echo $output; ?>
     <div class="hero-head">
         <header class="navbar">
             <div class="container">
@@ -30,7 +71,7 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
-                        <a href="index.html" class="navbar-item">
+                        <a href="../index.html" class="navbar-item">
                             Home
                         </a>
                         <a class="navbar-item">
@@ -52,16 +93,15 @@
             <div class="column is-4 is-offset-4">
                 <h3 class="title has-text-grey">Login</h3>
                 <div class="box">
-                    <form>
+                    <form name="form-signin" method="POST" action="./signIn.php">
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                <input class="input is-large" type="email" placeholder="Your Email" name="email" id="email" autofocus="">
                             </div>
                         </div>
-
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="password" placeholder="Your Password">
+                                <input class="input is-large" type="password" placeholder="Your Password" name="pass" id="pass">
                             </div>
                         </div>
                         <div class="field">
