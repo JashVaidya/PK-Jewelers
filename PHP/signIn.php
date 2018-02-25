@@ -25,10 +25,10 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
             $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
         } else {
-            $output = "Password does not match.";
+            $output = "Password does not match";
         }
     } else {
-        $output = "User not found.";
+        $output = "User not found";
     }
 }
 ?>
@@ -49,7 +49,6 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
 <body>
 <section class="hero is-white is-fullheight">
     <!-- Hero head: will stick at the top -->
-    <?php echo $output; ?>
     <div class="hero-head">
         <header class="navbar">
             <div class="container">
@@ -86,6 +85,7 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
                 <h3 class="title has-text-grey">Login</h3>
+                <h2 style="color: red;"><span><?php echo $output;?></span></h2>
                 <div class="box">
                     <form name="form-signin" method="POST" action="./signIn.php">
                         <div class="field">
