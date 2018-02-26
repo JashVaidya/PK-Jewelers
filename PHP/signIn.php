@@ -22,11 +22,11 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         //Compares the password input by the user and the one stored in the database. Both passwords are salted so the actual password will never be known by anyone except the user who created it
         if (hash_equals($userDetails['passwordHash'], crypt($_POST['pass'], SALT))) {
             $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-            header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
             $_SESSION["userEmail"] = $userDetails['email'];
             $_SESSION["userfName"] = $userDetails['fName'];
             $_SESSION["userlName"] = $userDetails['lName'];
-            //$_SESSION["userAddress"] = $userDetails['address']; 
+            header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+            //$_SESSION["userAddress"] = $userDetails['address'];
         } else {
             $output = "Password does not match";
         }
