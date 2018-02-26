@@ -1,4 +1,7 @@
 <?php
+//Starts a PHP session to be used on multiple pages, accesd with $_SESSION variable
+session_start();
+
 //Shows errors on the page
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -23,7 +26,8 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         //Compares the password input by the user and the one stored in the database. Both passwords are salted so the actual password will never be known by anyone except the user who created it
         if (hash_equals($userDetails['passwordHash'], crypt($_POST['pass'], SALT))) {
             $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+            header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+            $_SESSION["userEmail"] = $_POST['email'];
         } else {
             $output = "Password does not match";
         }
