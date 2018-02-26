@@ -27,7 +27,10 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         if (hash_equals($userDetails['passwordHash'], crypt($_POST['pass'], SALT))) {
             $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
             header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
-            $_SESSION["userEmail"] = $_POST['email'];
+            $_SESSION["userEmail"] = $userDetails['email'];
+            $_SESSION["userfName"] = $userDetails['fName'];
+            $_SESSION["userlName"] = $userDetails['lName'];
+            //$_SESSION["userAddress"] = $userDetails['address']; 
         } else {
             $output = "Password does not match";
         }

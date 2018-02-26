@@ -2,18 +2,6 @@
   //Starts new session unless a connection key is already stored in the browser
   session_start();
 
-  $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
-  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  $qr = $db->prepare("SELECT fName, lName FROM Customer WHERE email = ?");
-
-  if(isset($_SESSION["userEmail"])) {
-    $qr->execute(array($_SESSION["userEmail"]));
-    $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
-  } else {
-    echo "Profile not found";
-  }
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +46,7 @@
                             <!--About us-->
                         <!--</a>-->
                         <a class="navbar-item is-active">
-                            <?php echo $userDetails["fName"]; ?>
+                            <?php echo $_SESSION['fName']; ?>
                         </a>
                         <a onclick="signOut()" class="navbar-item">
                             Sign Out
