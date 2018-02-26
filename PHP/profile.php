@@ -1,24 +1,23 @@
 <?php
-  //Starts new session unless a connection key is already stored in the browser
-  session_start();
+//Starts new session unless a connection key is already stored in the browser
+session_start();
 
-  $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
-  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  $qr = $db->prepare("SELECT fName, lName FROM Customer WHERE email = ?");
+$qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
 
-  if(isset($_SESSION["userEmail"])) {
+if (isset($_SESSION["userEmail"])) {
     $qr->execute(array($_SESSION["userEmail"]));
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
-  } else {
+} else {
     echo "Profile not found";
-  }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,9 +38,7 @@
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <h1 class="subtitle">PK
-                            <i class="far fa-gem fa-sm"></i>
-                        </h1>
+                        <h1 class="subtitle">PK<i class="far fa-gem fa-sm"></i></h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                             <span></span>
@@ -54,17 +51,14 @@
                         <a href="../index.html" class="navbar-item">
                             Home
                         </a>
-                        <!--<a class="navbar-item">-->
-                            <!--About us-->
-                        <!--</a>-->
                         <a class="navbar-item is-active">
                             <?php echo $userDetails["fName"]; ?>
                         </a>
                         <a onclick="signOut()" class="navbar-item">
                             Sign Out
-                        <a class="navbar-item">
-                            <i class="fa fa-shopping-cart fa-lg"></i>
-                        </a>
+                            <a class="navbar-item">
+                                <i class="fa fa-shopping-cart fa-lg"></i>
+                            </a>
                     </div>
                 </div>
             </div>
@@ -73,34 +67,23 @@
 
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
-        <div class="container has-text-centered">
-            <h1 class="title">
-                Title
+        <div class="container">
+            <h1 class="subtitle">
+                <?php echo $userDetails['fName'] . " " . $userDetails['lName']; ?>
             </h1>
-            <h2 class="subtitle ">
-                subtitle
-            </h2>
-            <!--<a >-->
-            <!--<i class="far fa-gem fa-3x has-text-dark"></i>-->
-            <!--</a>-->
+            <h1 class="subtitle">
+                <?php echo $userDetails['phone']; ?>
+            </h1>
+            <h1 class="subtitle">
+                <?php echo $userDetails['email']; ?>
+            </h1>
+            <h1 class="subtitle">
+                <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state'] ;?>
+            </h1>
         </div>
     </div>
 </section>
 
-<section class="section is-medium" id="about-section">
-    <div class="container has-text-centered">
-        <div class="columns">
-            <div class="column">
-                <h1 class="title">Who We Are</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis delectus distinctio excepturi
-                    exercitationem, illum impedit in, ipsum laudantium magnam minus nostrum obcaecati officiis quas
-                    sapiente sint tempore velit voluptate?
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 </body>
 
 </html>
