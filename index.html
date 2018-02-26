@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">-->
+    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/lux/bulmaswatch.min.css">
+    <link rel="icon" href="../ASSETS/favicon-diamond.ico">
+    <script src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <title>PK Jewelers</title>
+</head>
+
+<body>
+<section class="hero is-white is-fullheight" id="landing-page">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <header class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        <h1 class="subtitle">PK<i class="far fa-gem fa-sm"></i>
+                        </h1>
+                    </a>
+                    <span class="navbar-burger burger" data-target="navbarMenuHeroC">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                </div>
+                <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
+                    <div class="navbar-end">
+                        <a class="navbar-item is-active">
+                            Home
+                        </a>
+                        <a href="PHP/signIn.php" class="navbar-item">
+                            Sign In
+                        </a>
+                        <a class="navbar-item">
+                            <i class="fa fa-shopping-cart fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">
+                Title
+            </h1>
+            <h2 class="subtitle ">
+                subtitle
+            </h2>
+            <!--<a >-->
+            <!--<i class="far fa-gem fa-3x has-text-dark"></i>-->
+            <!--</a>-->
+        </div>
+    </div>
+</section>
+
+<section class="section is-medium " id="about-section">
+    <div class="container has-text-centered">
+        <div class="columns is-centered">
+            <div class="column is-half is-narrow">
+                <h1 class="title">Who We Are</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis delectus distinctio excepturi
+                    exercitationem, illum impedit in, ipsum laudantium magnam minus nostrum obcaecati officiis quas
+                    sapiente sint tempore velit voluptate?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Get all "navbar-burger" elements
+        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(function ($el) {
+                $el.addEventListener('click', function () {
+
+                    // Get the target from the "data-target" attribute
+                    var target = $el.dataset.target;
+                    var $target = document.getElementById(target);
+
+                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                    $el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>
+</html>
