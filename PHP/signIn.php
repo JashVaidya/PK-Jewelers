@@ -64,19 +64,16 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                         <h1 class="subtitle">PK<i class="far fa-gem fa-sm"></i></h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    </span>
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu">
                     <div class="navbar-end">
                         <a href="../index.html" class="navbar-item">
                             Home
                         </a>
-<!--                        <a class="navbar-item">-->
-<!--                            About us-->
-<!--                        </a>-->
                         <a class="navbar-item is-active">
                             Sign In
                         </a>
@@ -92,7 +89,7 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
                 <h3 class="title has-text-grey">Login</h3>
-                <h2 style="color: red;"><span><?php echo $output;?></span></h2>
+                <h2 style="color: red;"><span><?php echo $output; ?></span></h2>
                 <div class="box">
                     <form name="form-signin" method="POST" action="./signIn.php">
                         <div class="field">
@@ -125,6 +122,32 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
         </div>
     </div>
 </section>
-<!--<script async type="text/javascript" src="../js/bulma.js"></script>-->
-</body>
+</body><!--<script async type="text/javascript" src="../js/bulma.js"></script>-->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Get all "navbar-burger" elements
+        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(function ($el) {
+                $el.addEventListener('click', function () {
+
+                    // Get the target from the "data-target" attribute
+                    var target = $el.dataset.target;
+                    var $target = document.getElementById(target);
+
+                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+                    $el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>
 </html>
