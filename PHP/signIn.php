@@ -69,7 +69,7 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                     <span></span>
                     </span>
                 </div>
-                <div id="navbarMenuHeroC" class="navbar-menu">
+                <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
                         <a href="../index.html" class="navbar-item">
                             Home
