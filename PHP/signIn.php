@@ -2,10 +2,6 @@
 //Starts a PHP session to be used on multiple pages, accesd with $_SESSION variable
 session_start();
 
-//Shows errors on the page
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
 //Defining the salting encryption standard
 define("SALT", 'ASDGasdfvartWFGSD#$5t2345HFDSY45yw4rget4312');
 $output = "";
