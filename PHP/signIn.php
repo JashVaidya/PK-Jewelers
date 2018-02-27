@@ -146,4 +146,6 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
 
     });
 </script>
+<script src="../JS/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
 </html>

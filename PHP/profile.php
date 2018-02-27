@@ -111,4 +111,6 @@ if (isset($_SESSION["userEmail"])) {
 
     });
 </script>
+<script src="../JS/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
 </html>
