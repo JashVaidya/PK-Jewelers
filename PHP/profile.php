@@ -77,7 +77,7 @@ if (isset($_SESSION["userEmail"])) {
                 <?php echo $userDetails['email']; ?>
             </h1>
             <h1 class="subtitle">
-                <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state'] ;?>
+                <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state']; ?>
             </h1>
         </div>
     </div>
@@ -111,6 +111,6 @@ if (isset($_SESSION["userEmail"])) {
 
     });
 </script>
-<script src="../JS/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
+<!--<script src="../JS/instantclick.min.js" data-no-instant></script>-->
+<!--<script data-no-instant>InstantClick.init();</script>-->
 </html>
