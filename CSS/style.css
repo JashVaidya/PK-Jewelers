@@ -1,8 +1,17 @@
+/*Navbar*/
+.navbar-item:hover {
+    background-color: yellow;
+}
+
 /*Main landing Section*/
 #landing-page {
     /*background: url("../ASSETS/Pictures/ring2-bg.jpg");*/
     /*background-size: cover;*/
     /*background: #F2F6FA;*/
+}
+
+.is-blue {
+    color: #04a6d7;
 }
 
 #about-section {

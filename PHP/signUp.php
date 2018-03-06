@@ -73,7 +73,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
     <div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
-                <h3 class="title has-text-grey">Login</h3>
+                <h3 class="title has-text-grey">Sign Up</h3>
                 <h2 style="color: red;"><span><?php echo $output; ?></span></h2>
                 <div class="box">
                     <form name="form-signup" method="POST" action="./signUp.php">

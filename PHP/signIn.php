@@ -110,7 +110,7 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                     </form>
                 </div>
                 <p class="has-text-grey">
-                    <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                    <a href="signUp.php">Sign Up</a> &nbsp;·&nbsp;
                     <a href="../">Forgot Password</a> &nbsp;·&nbsp;
                     <a href="../">Need Help?</a>
                 </p>
