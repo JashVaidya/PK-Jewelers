@@ -94,14 +94,14 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
 <!--Email Field-->
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="email" placeholder="Your Email" name="email"
+                                <input class="input is-large" type="email" placeholder="Email" name="email"
                                        id="email"  required>
                             </div>
                         </div>
 <!--Password Field-->
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="password" placeholder="Your Password" name="pass"
+                                <input class="input is-large" type="password" placeholder="Password" name="pass"
                                        id="pass" required>
                             </div>
                         </div>
@@ -115,14 +115,14 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
 <!--Address Field-->
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="text" placeholder="Your Address" name="addr"
+                                <input class="input is-large" type="text" placeholder="Street" name="addr"
                                        id="addr">
                             </div>
                         </div>
 <!--City Field-->
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="text" placeholder="Your City" name="city"
+                                <input class="input is-large" type="text" placeholder="City" name="city"
                                        id="city" required>
                             </div>
                         </div>
