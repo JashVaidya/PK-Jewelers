@@ -43,9 +43,8 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login </title>
-    <!--<link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">-->
-    <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/lux/bulmaswatch.min.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/login.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
     <script src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 </head>
@@ -67,13 +66,13 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item">
+                        <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
-                        <a class="navbar-item is-active">
+                        <a class="navbar-item underline">
                             Sign In
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item underline">
                             <i class="fa fa-shopping-cart fa-lg"></i>
                         </a>
                     </div>
