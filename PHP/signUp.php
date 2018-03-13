@@ -1,4 +1,5 @@
 <?php
+session_start();
 //Defining the salting encryption standard
 define("SALT", 'ASDGasdfvartWFGSD#$5t2345HFDSY45yw4rget4312');
 $output = "";
@@ -16,8 +17,13 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
 
   //Returns true if the user is found in the database
   if (!($userDetails = $qr->fetch(PDO::FETCH_ASSOC))) {
-    $qr = $db->prepare("INSERT INTO Customer(A25, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); //Not sure what to put for first param, matches to custID(primary key) in database
-    $qr->exectute(array($_POST['fName'], $_POST['lName'], crypt($_POST['pass'], SALT), $_POST['phone'], $_POST['email'], $_POST['country'], $_POST['state'], $_POST['city'], $_POST['addr']));
+    $qr = $db->prepare("INSERT INTO Customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); //Not sure what to put for first param, matches to custID(primary key) in database
+    $accCreated = $qr->execute(array($_POST['fName'], $_POST['lName'], crypt($_POST['pass'], SALT), $_POST['phone'], $_POST['email'], $_POST['country'], $_POST['state'], $_POST['city'], $_POST['addr']));
+    if($accCreated)
+    {
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+    }
   }
   else {
       $output = "Email already in use.";
@@ -129,7 +135,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                         <div class="field">
                           <div class="control has-icons-left">
                             <div class="select is-large is-fullwidth">
-                              <select id="country" class="has-text-centered">
+                              <select id="country" name="country" class="has-text-centered">
                                 <option value="" selected>Select a Country</option>
                               </select>
                             </div>
@@ -142,7 +148,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                         <div class="field">
                           <div class="control">
                             <div class="select is-large is-fullwidth">
-                              <select id="state" class="has-text-centered">
+                              <select id="state" name="state" class="has-text-centered">
                                 <option value="" selected>Select a State</option>
                               </select>
                             </div>
