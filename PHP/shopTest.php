@@ -3,7 +3,7 @@ session_start();
 
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $qr = $db->prepare("SELECT * FROM Inventory");
-echo $qr;
+//echo $qr;
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ echo $qr;
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <h1 class="subtitle">PK<i class="far fa-gem fa-sm"></i></h1>
+                        <h1 class="title is-2 is-blue">PK<i class="far fa-gem fa-sm"></i></h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                     <span></span>
@@ -53,6 +53,7 @@ echo $qr;
             </div>
         </header>
     </div>
+
     <div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-4 is-offset-4">
@@ -69,10 +70,11 @@ echo $qr;
                         <button class="button is-block is-success is-large is-fullwidth">Search</button>
                     </form>
                 </div>
-                
+
             </div>
         </div>
     </div>
+
 </section>
 </body><!--<script async type="text/javascript" src="../js/bulma.js"></script>-->
 <script type="text/javascript">
