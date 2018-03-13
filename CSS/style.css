@@ -3,6 +3,11 @@
 a.navbar-item:hover {
     background-color: white !important;
 }
+
+.is-blue {
+    color: #5db7dd !important;
+}
+
 .underline {
     position: relative;
 }
