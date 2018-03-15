@@ -1,10 +1,91 @@
+/* STYLE.CSS*/
+/*Navbar effects*/
+a.navbar-item:hover {
+    background-color: white !important;
+}
+
+.is-blue {
+    color: #5db7dd !important;
+}
+
+.underline {
+    position: relative;
+}
+.underline:hover,
+.underline:focus,
+.underline:active {
+    cursor: pointer;
+}
+.underline:hover:after,
+.underline:focus:after,
+.underline:active:after {
+    width: 100%;
+}
+.underline:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    height: 3px;
+    background-color: #000;
+    width: 0;
+    -webkit-transition: width .3s;
+    transition: width .3s;
+}
+
 /*Main landing Section*/
 #landing-page {
-    /*background: url("../ASSETS/Pictures/ring2-bg.jpg");*/
-    /*background-size: cover;*/
     /*background: #F2F6FA;*/
 }
 
+/*Floating animation for the diamond on landing page*/
+.floating {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }
+}
+
 #about-section {
-    background-color: #f1e4e8;
+    background-color: #cdecff;
+}
+
+
+/*------------------------------------------------------*/
+/* LOGIN.CSS */
+.hero.is-success {
+    background: #F2F6FA;
+}
+.hero .nav, .hero.is-success .nav {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.box {
+    margin-top: 5rem;
+}
+.avatar {
+    margin-top: -70px;
+    padding-bottom: 20px;
+}
+.avatar img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+input {
+    font-weight: 300;
+}
+p {
+    font-weight: 700;
+}
+p.subtitle {
+    padding-top: 1rem;
 }
