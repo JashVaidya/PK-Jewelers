@@ -64,7 +64,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                         <div class="field">
                             <div class="control">
                                 <input class="input is-large" type="text" placeholder="Item" name="item"
-                                       id="sBar" autofocus="">
+                                       id="item" autofocus="">
                             </div>
                         </div>
                         <button class="button is-block is-success is-large is-fullwidth">Search</button>

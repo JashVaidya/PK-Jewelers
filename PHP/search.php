@@ -1,14 +1,26 @@
 <?php
+echo "step 1 <br>";
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$qr = $db->prepare("SELECT * FROM inventory WHERE pTag like %?%");
-$qr->execute(array($_GET['item']));
-
-while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
+echo "connected to the databse <br>";
+$qr = $db->prepare("SELECT * FROM Inventory WHERE pTag like :keyWord");
+$qr->bindValue(':keyWord', "%{$_GET['item']}%");
+echo "got past the prepare <br>";
+echo "The search text: " . $_GET['item'] . "<br>";
+if($qr->execute())
 {
-  addItem($lineItem['pName'], $lineItem['price']);
+  echo "got past the query <br>";
+  if($results = $qr->fetchAll())
+  {
+    echo "Got the results <br>";
+    foreach ($results as $lineItem)
+    {
+      echo "we loopin <br>";
+      echo "Name: " . $lineItem['pName'];
+      addItem($lineItem['pName'], $lineItem['price']);
+    }
+  }
 }
 ?>
 
@@ -18,7 +30,7 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login </title>
+    <title>PK </title>
     <link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">
     <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
@@ -65,16 +77,15 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
           </table>
       </div>
     </div>
-</html>
-
 <script>
-  function addItem($name, $price)
+  function addItem(name, price)
   {
-    var $table = document.getElementById('results');
-    var row = $table.insertRow(0);
+    var table = document.getElementById('results');
+    var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = "" + $name;
     cell2.innerHTML = "" + $price;
   }
 </script>
+</html>
