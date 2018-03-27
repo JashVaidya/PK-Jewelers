@@ -3,7 +3,7 @@ $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$qr = $db->prepare("SELECT * FROM inventory WHERE pName like %?%");
+$qr = $db->prepare("SELECT * FROM inventory WHERE pTag like %?%");
 $qr->execute(array($_GET['text']));
 
 while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
@@ -62,7 +62,6 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
       </div>
       <div class = "column is-four-fifths">
           <table id = "results">
-
           </table>
       </div>
     </div>
@@ -71,8 +70,9 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
 <script>
   function addItem($name, $price)
   {
+  	 f
     var $table = document.getElementById('results');
-    var row = table.insertRow(0);
+    var row = $table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = "" + $name;
