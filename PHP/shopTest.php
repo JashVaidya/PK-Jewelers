@@ -63,7 +63,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                     <form name="form-shopTest" method="get" action="./search.php">
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="text" placeholder="Item" name="sBar"
+                                <input class="input is-large" type="text" placeholder="Item" name="item"
                                        id="sBar" autofocus="">
                             </div>
                         </div>
