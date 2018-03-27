@@ -62,6 +62,9 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
       </div>
       <div class = "column is-four-fifths">
           <table id = "results">
+          <tr>
+          <td id="cell"></td>
+          </tr>
           </table>
       </div>
     </div>
@@ -70,7 +73,7 @@ while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
 <script>
   function addItem($name, $price)
   {
-  	
+  	document.getElementById('cell').innerHTML="" + $name;
     var $table = document.getElementById('results');
     var row = $table.insertRow(0);
     var cell1 = row.insertCell(0);
