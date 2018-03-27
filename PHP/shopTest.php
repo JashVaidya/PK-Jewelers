@@ -60,10 +60,10 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                 <h3 class="title has-text-grey">Shop</h3>
                 <h2 style="color: red;"><span><?php echo $output; ?></span></h2>
                 <div class="box">
-                    <form name="form-shopTest" method="POST" action="./search.php">
+                    <form name="form-shopTest" method="get" action="./search.php">
                         <div class="field">
                             <div class="control">
-                                <input class="input is-large" type="text" placeholder="Item" name="item"
+                                <input class="input is-large" type="text" placeholder="Item" name="sBar"
                                        id="sBar" autofocus="">
                             </div>
                         </div>

@@ -4,7 +4,7 @@ $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $qr = $db->prepare("SELECT * FROM inventory WHERE pTag like '%?%'");
-$qr->execute(array($_GET['text']));
+$qr->execute(array($_GET['sBar']));
 
 while($lineItem = $qr->fetch(PDO::FETCH_ASSOC))
 {
