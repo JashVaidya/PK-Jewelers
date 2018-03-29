@@ -13,7 +13,7 @@
 
 <style>
   table, th, td {
-      border: 1px solid black;
+      border: 0px solid black;
   }
 </style>
 
@@ -51,7 +51,91 @@
     </div>
     <div class = "columns">
       <div class = "column is-one-fifth">
-          <p></p>
+          <form id="form1">
+        <div class="container" style="width:100%">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-left:5px solid blue">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#menuOne">
+                                <b>METAL TYPE</b> <span class="glyphicon glyphicon-minus" style="float:right; color:blue"></span>
+                                
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menuOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <input id="Checkbox1" type="checkbox" /> Gold<br />
+                            <input id="Checkbox1" type="checkbox" /> Silver<br />
+                            <input id="Checkbox1" type="checkbox" /> Platinum<br />
+                            <input id="Checkbox1" type="checkbox" /> Palladium
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-left:5px solid blue">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#menuTwo">
+                                <b>METAL COLOR</b><span class="glyphicon glyphicon-minus" style="float:right; color:blue"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menuTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <input id="Checkbox1" type="checkbox" /> White<br />
+                            <input id="Checkbox1" type="checkbox" /> Yellow<br />
+                            <input id="Checkbox1" type="checkbox" /> Rose<br />
+                            <input id="Checkbox1" type="checkbox" /> Multi
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-left:5px solid blue">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#menuThree">
+                               <b>METAL KARAT</b> <span class="glyphicon glyphicon-minus" style="float:right; color:blue"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menuThree" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Place Holder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-left:5px solid blue">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#menuFour">
+                                
+                                <b>ENGRAVABLE</b> <span class="glyphicon glyphicon-minus" style="float:right; color:blue"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menuFour" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Place Holder</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="border-left:5px solid blue">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#menuFive">
+                                
+                                <b>GENDER</b> <span class="glyphicon glyphicon-minus" style="float:right; color:blue"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="menuFive" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Place Holder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
       </div>
       <div class = "column is-four-fifths">
           <table id = "results" width = "400">
@@ -72,6 +156,7 @@ if($qr->execute())
 {
   if($results = $qr->fetchAll())
   {
+	  
     foreach ($results as $lineItem)
     {
       echo "<script>
