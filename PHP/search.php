@@ -1,29 +1,3 @@
-<?php
-echo "step 1 <br>";
-$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "connected to the databse <br>";
-$qr = $db->prepare("SELECT * FROM Inventory WHERE pTag like :keyWord");
-$qr->bindValue(':keyWord', "%{$_GET['item']}%");
-echo "got past the prepare <br>";
-echo "The search text: " . $_GET['item'] . "<br>";
-if($qr->execute())
-{
-  echo "got past the query <br>";
-  if($results = $qr->fetchAll())
-  {
-    echo "Got the results <br>";
-    foreach ($results as $lineItem)
-    {
-      echo "we loopin <br>";
-      echo "Name: " . $lineItem['pName'];
-      addItem($lineItem['pName'], $lineItem['price']);
-    }
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +10,15 @@ if($qr->execute())
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
     <script src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
 </head>
+
+<style>
+  table, th, td {
+      border: 1px solid black;
+  }
+</style>
+
 <body>
-<section class="hero is-white is-fullheight">
+<section class="hero is-white is-halfheight">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
         <header class="navbar">
@@ -70,22 +51,38 @@ if($qr->execute())
     </div>
     <div class = "columns">
       <div class = "column is-one-fifth">
-          <p> THIS IS A SHORT COLUMN </p>
+          <p></p>
       </div>
       <div class = "column is-four-fifths">
-          <table id = "results">
+          <table id = "results" width = "400">
           </table>
       </div>
     </div>
-<script>
-  function addItem(name, price)
-  {
-    var table = document.getElementById('results');
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    cell1.innerHTML = "" + $name;
-    cell2.innerHTML = "" + $price;
-  }
-</script>
 </html>
+
+<?php
+$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$qr = $db->prepare("SELECT * FROM Product WHERE pName like :keyWord");
+$qr->bindValue(':keyWord', "%{$_GET['item']}%");
+
+if($qr->execute())
+{
+  if($results = $qr->fetchAll())
+  {
+    foreach ($results as $lineItem)
+    {
+      echo "<script>
+      var table = document.getElementById('results');
+      var row = table.insertRow(0);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = '". $lineItem['pName']. "';
+      cell2.innerHTML = '". $lineItem['price']. "';
+      </script>";
+    }
+  }
+}
+?>
