@@ -76,13 +76,20 @@ if($qr->execute())
     {
       echo "<script>
       var table = document.getElementById('results');
+      var picture = '<img src = \"../ASSETS/" .$lineItem['picture']. "\">';
       var row = table.insertRow(0);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
       cell1.innerHTML = '". $lineItem['pName']. "';
       cell2.innerHTML = '". $lineItem['price']. "';
+      cell3.innerHTML = picture;
       </script>";
     }
   }
+}
+else
+{
+  echo "<script>document.write('No results for: ".$_GET['item']."')</script>";
 }
 ?>
