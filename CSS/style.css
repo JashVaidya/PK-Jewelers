@@ -9,6 +9,14 @@ a.navbar-item:hover {
     color: hsl(204, 86%, 53%) !important;
 }
 
+.is-blue2 {
+    background-color : hsl(204, 86%, 53%) !important;
+}
+
+ul li {
+    display: inline;
+}
+
 .underline {
     position: relative;
 }
