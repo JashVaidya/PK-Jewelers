@@ -51,11 +51,29 @@
                 </div>
             </div>
         </header>
-    </div>
+		
+<div class="hero-body">
+        
+            
+                
+               
+                    <form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
+                        <div class="field">
+                            <div class="control">
+                                <input  type="text" placeholder="Item" name="item"
+                                       id="item" autofocus="">
+                            </div>
+                        </div>
+                        <button>Search</button>
+                    </form>
+               
 
+            
+       
+    </div>
     <div class="hero-body">
         <div class="columns">
-            <div class="column is-one-third">
+            <div class="column is-two-fifths">
                 <form id="form1">
                     <div class="container" style="width:100%">
                         <div class="panel-group" id="accordion">
@@ -152,7 +170,10 @@
                     </div>
                 </form>
             </div>
-            <div class="column is-two-thirds">
+			<div class="column is-one-fifth">
+                
+            </div>
+            <div class="column is-two-fifths">
                 <table id="results" width="400">
                 </table>
             </div>
