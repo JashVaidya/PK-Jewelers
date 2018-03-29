@@ -49,6 +49,9 @@ if (isset($_SESSION["userEmail"])) {
                         <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
+                        <a href="shopTest.php" class="navbar-item underline">
+                            Shop
+                        </a>
                         <a class="navbar-item underline">
                             <?php echo $_SESSION["userfName"]; ?>
                         </a>

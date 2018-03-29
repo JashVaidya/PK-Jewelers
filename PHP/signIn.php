@@ -69,6 +69,9 @@ if (isset($_POST['email']) && $_POST['pass'] != null) {
                         <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
+                        <a href="shopTest.php" class="navbar-item underline">
+                            Shop
+                        </a>
                         <a class="navbar-item underline">
                             Sign In
                         </a>
