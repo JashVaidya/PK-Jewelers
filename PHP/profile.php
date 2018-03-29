@@ -21,7 +21,7 @@ if (isset($_SESSION["userEmail"])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
     <script src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
@@ -36,7 +36,7 @@ if (isset($_SESSION["userEmail"])) {
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <h1 class="title is-2">PK<i class="far fa-gem fa-sm"></i></h1>
+                        <h1 class="title is-1 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                             <span></span>
@@ -46,15 +46,15 @@ if (isset($_SESSION["userEmail"])) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item">
+                        <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
-                        <a class="navbar-item is-active">
+                        <a class="navbar-item underline">
                             <?php echo $_SESSION["userfName"]; ?>
                         </a>
-                        <a onclick="signOut()" class="navbar-item">
+                        <a onclick="signOut()" class="navbar-item underline">
                             Sign Out
-                            <a class="navbar-item">
+                            <a href="shopTest.php" class="navbar-item underline">
                                 <i class="fa fa-shopping-cart fa-lg"></i>
                             </a>
                     </div>

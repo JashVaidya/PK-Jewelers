@@ -26,7 +26,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <h1 class="title is-2 is-blue">PK<i class="far fa-gem fa-sm"></i></h1>
+                        <h1 class="title is-1 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                     <span></span>
@@ -42,10 +42,10 @@ $qr = $db->prepare("SELECT * FROM Inventory");
 						<a class="navbar-item underline">
                             Shop
                         </a>
-                        <a href="PHP/signIn.php" class="navbar-item underline">
+                        <a href="signIn.php" class="navbar-item underline">
                             Sign In
                         </a>
-                        <a class="navbar-item underline">
+                        <a href="shopTest.php" class="navbar-item underline">
                             <i class="fa fa-shopping-cart fa-lg"></i>
                         </a>
                     </div>
@@ -67,7 +67,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                                        id="item" autofocus="">
                             </div>
                         </div>
-                        <button class="button is-block is-success is-large is-fullwidth">Search</button>
+                        <button class="button is-block is-info is-large is-fullwidth">Search</button>
                     </form>
                 </div>
 

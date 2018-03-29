@@ -1,4 +1,3 @@
-
 //Mobile menu
 document.addEventListener('DOMContentLoaded', function () {
 
