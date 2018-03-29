@@ -41,7 +41,7 @@
                         <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
-                        <a class="navbar-item underline">
+                        <a href="search.php" class="navbar-item underline">
                             Sign In
                         </a>
                         <a href="shopTest.php" class="navbar-item underline">
