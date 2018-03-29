@@ -42,7 +42,6 @@
         </header>
     </div>
 
-<!--    <iframe style="width: 1px; min-width: 100%;" scrolling="no" width="100%" height="1500px" frameborder="0" src="https://pkjewelers-frame-categoryembed.jewelershowcase.com/"></iframe>-->
     <iframe  scrolling="no" width="100%" height="1500px"  src="https://pkjewelers-frame-categoryembed.jewelershowcase.com/"></iframe>
 
 </section>
