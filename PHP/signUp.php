@@ -64,7 +64,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                         <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
-                        <a href="shopTest.php" class="navbar-item underline">
+                        <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
                         <a href="./signIn.php" class="navbar-item underline">

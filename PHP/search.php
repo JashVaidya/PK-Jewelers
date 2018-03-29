@@ -38,7 +38,7 @@
                         <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
-                        <a href="shopTest.php" class="navbar-item underline">
+                        <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
                         <a class="navbar-item underline">
