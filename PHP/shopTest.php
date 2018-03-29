@@ -67,7 +67,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                                        id="item" autofocus="">
                             </div>
                         </div>
-                        <button class="button is-block is-success is-large is-fullwidth">Search</button>
+                        
                     </form>
                 </div>
 
