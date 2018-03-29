@@ -55,7 +55,7 @@
 
     <div class="hero-body">
         <div class="columns">
-            <div class="column is-one-fifth">
+            <div class="column is-one-third">
                 <form id="form1">
                     <div class="container" style="width:100%">
                         <div class="panel-group" id="accordion">
@@ -152,7 +152,7 @@
                     </div>
                 </form>
             </div>
-            <div class="column is-four-fifths">
+            <div class="column is-two-thirds">
                 <table id="results" width="400">
                 </table>
             </div>
