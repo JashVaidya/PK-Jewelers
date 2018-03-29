@@ -201,8 +201,8 @@ if ($qr->execute()) {
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
       cell1.innerHTML = picture
-      cell2.innerHTML = '" . $lineItem['pName'] . "';
-      cell3.innerHTML = '" . $lineItem['price'] . "';
+      cell2.innerHTML = '"   . $lineItem['pName'] .   "';
+      cell3.innerHTML = '"   . $lineItem['price'] .   "';
       </script>";
         }
     }
