@@ -169,6 +169,18 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
         </div>
     </div>
 </section>
+
+<footer class="footer is-blue2 ">
+    <div class="container">
+        <div class="content has-text-centered">
+            <ul style="list-style-type: none;">
+                <li><a class="has-text-white">(540)-366-1119    |</a></li>
+                <li><a class="has-text-white">4802 Valley View Blvd. NW #t63b, Roanoke, VA 24012    |</a></li>
+                <li><a class="has-text-white">mehulvaidya2008@gmail.com</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
 </body>
 <!--Populates the Country and State Dropdown choices-->
 <script src="../JS/regionOptions.js"></script>
