@@ -168,14 +168,11 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $qr = $db->prepare("SELECT * FROM Product WHERE pName like :keyWord");
 $qr->bindValue(':keyWord', "%{$_GET['item']}%");
 $count = 0;
-if($qr->execute())
-{
-  if($results = $qr->fetchAll())
-  {
-	  
-    foreach ($results as $lineItem)
-    {
-      echo "<script>
+if ($qr->execute()) {
+    if ($results = $qr->fetchAll()) {
+
+        foreach ($results as $lineItem) {
+            echo "<script>
       var table = document.getElementById('results');
       var picture = '<img src = \"../ASSETS/" . $lineItem['picture'] . "\">';
       var row = table.insertRow(0);
@@ -183,14 +180,12 @@ if($qr->execute())
       var cell2 = row.insertCell(1);
       var cell3 = row.insertCell(2);
       cell1.innerHTML = picture
-      cell2.innerHTML = '". $lineItem['pName']. "';
-      cell3.innerHTML = '". $lineItem['price']. "';
+      cell2.innerHTML = '" . $lineItem['pName'] . "';
+      cell3.innerHTML = '" . $lineItem['price'] . "';
       </script>";
+        }
     }
-  }
-}
-    
- else {
+} else {
     echo "<script>document.write('No results for: " . $_GET['item'] . "')</script>";
 }
 ?>

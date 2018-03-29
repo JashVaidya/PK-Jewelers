@@ -28,7 +28,7 @@ a.navbar-item:hover {
     left: 0;
     bottom: 5px;
     height: 3px;
-    background-color: #000;
+    background-color: hsl(204, 86%, 53%);
     width: 0;
     -webkit-transition: width .3s;
     transition: width .3s;
