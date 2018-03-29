@@ -154,7 +154,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                             </div>
                           </div>
                         </div>
-                        <button class="button is-block is-success is-large is-fullwidth">Sign Up</button>
+                        <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
                     </form>
                 </div>
                 <p class="has-text-grey">

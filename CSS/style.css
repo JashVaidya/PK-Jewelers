@@ -5,7 +5,8 @@ a.navbar-item:hover {
 }
 
 .is-blue {
-    color: #5db7dd !important;
+    /*color: #5db7dd !important;*/
+    color: hsl(204, 86%, 53%) !important;
 }
 
 .underline {
@@ -36,6 +37,25 @@ a.navbar-item:hover {
 /*Main landing Section*/
 #landing-page {
     /*background: #F2F6FA;*/
+}
+
+.photo img {
+    opacity: 1;
+
+}
+
+.photo {
+    overflow: hidden;
+}
+
+.photo img:hover {
+    opacity: .5;
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
+    -webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+    transition: transform 0.5s, opacity 0.5s;
+
 }
 
 /*Floating animation for the diamond on landing page*/
