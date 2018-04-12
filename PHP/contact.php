@@ -1,12 +1,28 @@
 <!DOCTYPE html>
+<?php 
+	if(!isset($_POST["email"])))
+		echo "Please provide a valid email address.";
+	if(!isset($_POST["name"]))
+		echo "Please provide your name.";
+	if(!isset($_POST["message"]))
+		echo "We want to hear from you.  Please provide a message";
+	$company_email = "jashvaidya7x@gmail.com";
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$message = $_POST["message"];
+	$submitted = "Name: " . $name . "\n";
+	$submitted .= "Email: " . $email . "\n";
+	$submitted .= "Message: " . $message . "\n";
+	mail($company_email, $name . " Comments", $submitted);
+?>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" type="text/css" href="CSS/bulmaswatch.min.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/bulmaswatch.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="icon" href="../ASSETS/favicon-diamond.ico">
     <title>PK Jewelers</title>
@@ -55,113 +71,42 @@
             </div>
         </header>
     </div>
-
-    <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="tile is-ancestor">
-                <div class="tile is-vertical is-8">
-                    <div class="tile">
-                        <div class="tile is-parent is-vertical">
-                            <article class="tile is-child photo  ">
-                                <img src="ASSETS/Pictures/sidering.png">
-                            </article>
-
-                            <article class="tile is-child photo">
-                                <img src="ASSETS/Pictures/blackwhite.png">
-                            </article>
-                        </div>
-                        <div class="tile is-parent">
-                            <article class="tile is-child photo">
-                                <img src="ASSETS/Pictures/model.png">
-                            </article>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <article class="tile is-child photo">
-
-                            <img src="ASSETS/Pictures/watch.png">
-
-                        </article>
-                    </div>
-                </div>
-                <div class="tile is-parent">
-                    <article class="tile is-child photo">
-                        <img src="ASSETS/Pictures/hand.png">
-                    </article>
-                </div>
-            </div>
-            <a>
-                <i class="far fa-gem fa-3x is-blue floating"></i>
-            </a>
-        </div>
-    </div>
-</section>
-
-<section class="section is-medium " id="about-section">
-    <div class="container has-text-centered">
-        <div class="columns">
-            <div class="column">
-                <h1 class="title">Our Story</h1>
-                <article class="message is-dark is-medium">
-                    <div class="message-body">
-
-                        <p >PK Jewelers' story began in 2008, in Roanoke, Virginia.
-                        <br>
-                        Where we combined a passion for designing and creating fine jewelry with a vision in providing superior customer service.
-                        <br>
-
-                        In the following years we have continued to expand at the demand of our highly satisfied clients and the strength of commitment to excellence.
-                            <br>
-
-                        We have a broad selection of classic and contemporary styles, as well as exquisite diamonds that are sure to exceed your buying expectations.
-
-                            <br>
-                            You will be welcomed by a knowledgeable staff with an average of 15+ years experience in this exciting industry.
-                            <br>
-                            We cherish the opportunity to celebrate the many happy occasions and moments in your lives.
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
 </section>
 
 <section class="section is-medium">
 <div class="container has-text-centered">
 
     <h1 class="title ">Let's Get In Touch</h1>
+<form method="post">
+	<div class="field has-addons has-addons-centered">
+		<label class="label is-large">Name </label>
+		<div class="control has-icons-left has-icons-right">
+			<input id="name" class="input" type="text" placeholder="e.g Alex Smith">
+			<span class="icon is-small is-left">
+				<i class="fas fa-user"></i>
+			</span>
+		</div>
+	</div>
 
-<div class="field has-addons has-addons-centered">
-    <label class="label is-large">Name </label>
-    <div class="control has-icons-left has-icons-right">
-        <input class="input" type="text" placeholder="e.g Alex Smith">
-        <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-        </span>
-    </div>
-</div>
-
-<div class="field has-addons has-addons-centered">
-    <label class="label is-large">Email </label>
-    <p class="control has-icons-left has-icons-right">
-        <input class="input" type="email" placeholder="Email">
-        <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-        <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-    </p>
-</div>
+	<div class="field has-addons has-addons-centered">
+		<label class="label is-large">Email </label>
+		<p class="control has-icons-left has-icons-right">
+			<input id="email" class="input" type="email" placeholder="Email">
+			<span class="icon is-small is-left">
+		<i class="fas fa-envelope"></i>
+		</span>
+			<span class="icon is-small is-right">
+		<i class="fas fa-check"></i>
+		</span>
+		</p>
+	</div>
 
     <div class="field has-addons has-addons-centered">
             <label class="label is-large">Message</label>
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <textarea class="textarea" placeholder="Explain how we can help you"></textarea>
+                    <textarea id="message" class="textarea" placeholder="Explain how we can help you"></textarea>
                 </div>
             </div>
         </div>
@@ -171,12 +116,13 @@
 
             <div class="field">
                 <div class="control">
-                    <button class="button is-info">
+                    <button type="submit" class="button is-info">
                         Send message
                     </button>
                 </div>
             </div>
     </div>
+</form>
 </div>
 </section>
 
