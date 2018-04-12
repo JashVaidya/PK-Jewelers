@@ -70,6 +70,9 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                         <a href="./signIn.php" class="navbar-item underline">
                             Sign In
                         </a>
+                        <a href="contact.php" class="navbar-item underline">
+                            Contact
+                        </a>
                         <a  class="navbar-item underline">
                           <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
                           <input type="hidden" name="cmd" value="_s-xclick">

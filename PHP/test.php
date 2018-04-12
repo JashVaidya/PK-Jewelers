@@ -36,6 +36,9 @@
                         <a href="../index.html" class="navbar-item underline">
                             Home
                         </a>
+                        <a href="contact.php" class="navbar-item underline">
+                            Contact
+                        </a>
                     </div>
                 </div>
             </div>

@@ -55,6 +55,9 @@ if (isset($_SESSION["userEmail"])) {
                         <a class="navbar-item underline">
                             <?php echo $_SESSION["userfName"]; ?>
                         </a>
+                        <a href="contact.php" class="navbar-item underline">
+                            Contact
+                        </a>
                         <a onclick="signOut()" class="navbar-item underline">
                             Sign Out
                             <a href="shopTest.php" class="navbar-item underline">
