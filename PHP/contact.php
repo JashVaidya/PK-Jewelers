@@ -58,7 +58,7 @@
                         <a href="PHP/signIn.php" class="navbar-item underline">
                             Sign In
                         </a>
-						<a href="PHP/contact.php" class="navbar-item underline">
+						<a href="contact.php" class="navbar-item underline">
 							Contact
 						</a>
                         <a class="navbar-item underline">
