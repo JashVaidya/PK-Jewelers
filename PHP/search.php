@@ -82,7 +82,7 @@
     </div>
     <div class="hero-body">
         <div class="columns">
-            <div class="column is-two-fifths">
+            <div class="column is-one-fifth">
                 <form id="form1">
                     <div class="container" style="width:100%">
                         <div class="panel-group" id="accordion">
@@ -179,14 +179,9 @@
                     </div>
                 </form>
             </div>
-			<div class="column is-one-fifth">
-
-            </div>
-            <div class="column is-two-fifths">
-              <form id ="product" action="./product.php" method="POST">
-                <table id="results" width="400">
-                </table>
-              </form>
+			<div class="column is-four-fifths">
+        <div class="container" id="searchResults">
+        </div>
             </div>
         </div>
     </div>
@@ -219,17 +214,37 @@ if ($qr->execute()) {
 
         foreach ($results as $lineItem) {
             echo "<script>
-      var table = document.getElementById('results');
-      var picture = '<img src = \"../ASSETS/" . $lineItem['picture'] . "\">';
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      cell1.innerHTML = picture;
-      cell2.innerHTML = '"   . $lineItem['pName'] .   "';
-      cell3.innerHTML = '"   . $lineItem['price'] .   "';
-      cell4.innerHTML = '<button form=\"product\" type=\"submit\" name=\"productInfo\" value=\"" . $lineItem['pId'] . "\">Add to Cart</button>';
+      var table = document.getElementById(\"searchResults\");
+
+      var bigBox = document.createElement(\"DIV\");
+      bigBox.setAttribute(\"class\", \"columns\");
+
+      var picture = document.createElement(\"IMG\");
+      picture.setAttribute(\"src\", \"../ASSETS/" . $lineItem['picture'] . "\");
+      var column1 = document.createElement(\"DIV\");
+      column1.setAttribute(\"class\", \"column is-one-fifth\");
+      column1.appendChild(picture);
+
+      var pName = document.createTextNode(\"" . $lineItem['pName'] . "\");
+      var column2 = document.createElement(\"DIV\");
+      column2.setAttribute(\"class\", \"column\");
+      column2.appendChild(pName);
+
+      var price = document.createTextNode(\"" . $lineItem['price'] . "\");
+      var column3 = document.createElement(\"DIV\");
+      column3.setAttribute(\"class\", \"column\");
+      column3.appendChild(price);
+
+      var column4 = document.createElement(\"DIV\");
+      column4.setAttribute(\"class\", \"column\");
+      column4.innerHTML = \"<form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='".$lineItem['ppId']."'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1'height='1'></form>\";
+
+      bigBox.appendChild(column1);
+      bigBox.appendChild(column2);
+      bigBox.appendChild(column3);
+      bigBox.appendChild(column4);
+
+      table.appendChild(bigBox);
      </script>";
         }
     }
@@ -237,10 +252,3 @@ if ($qr->execute()) {
     echo "<script>document.write('No results for: " . $_GET['item'] . "')</script>";
 }
 ?>
-
-<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="98YDTZQZS7P2N">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
