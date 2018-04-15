@@ -183,7 +183,7 @@
 
             </div>
             <div class="column is-two-fifths">
-              <form target="paypal" id ="cart" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+              <form id ="product" action="./product.php" method="POST">
                 <table id="results" width="400">
                 </table>
               </form>
@@ -229,13 +229,7 @@ if ($qr->execute()) {
       cell1.innerHTML = picture;
       cell2.innerHTML = '"   . $lineItem['pName'] .   "';
       cell3.innerHTML = '"   . $lineItem['price'] .   "';
-      cell4.innerHTML = '<input type=\"hidden\" name=\"cmd\" value=\"_cart\">
-                         <input type=\"hidden\" name=\"add\" value=\"1\">
-                         <input type=\"hidden\" name=\"item_name\" value=\"Item 1\">
-                         <input type=\"hidden\" name=\"amount\" value=\"3.95\">
-                         <input type=\"hidden\" name=\"currency_code\" value=\"USD\">
-                         <input type=\"image\" name=\"submit\" src=\"https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif\" alt=\"Add to Cart\">
-                         <img alt=\"\" width=\"1\" height=\"1\" src=\"https://www.paypalobjects.com/en_US/i/scr/pixel.gif\">';
+      cell4.innerHTML = '<button form=\"product\" type=\"submit\" name=\"productInfo\" value=\"" . $lineItem['pId'] . "\">Add to Cart</button>';
      </script>";
         }
     }
