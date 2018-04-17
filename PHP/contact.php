@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST["email"])) {
-    $company_email = "bwoodby@radford.edu";
+    $company_email = "jashvaidya7x@gmail.com";
     $name = $_POST["name"];
     $email = $_POST["email"];
     $message = $_POST["message"];
@@ -8,7 +8,7 @@ if (isset($_POST["email"])) {
     $submitted .= "Email: " . $email . "\n";
     $submitted .= "Message: " . $message . "\n";
     $subject = $name . " Comments";
-    $header = "From: " . $name;
+    $header = "From: jash@pkjeweler.com";
     $mail = mail($company_email, $subject, $submitted, $header);
     if ($mail)
         echo "success";
