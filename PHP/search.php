@@ -60,26 +60,20 @@
                 </div>
             </div>
         </header>
-
-<div class="hero-body">
-
-
-
-
-                    <form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
-                        <div class="field">
-                            <div class="control">
-                                <input  type="text" placeholder="Item" name="item"
-                                       id="item" autofocus="">
-                            </div>
-                        </div>
-                        <button>Search</button>
-                    </form>
-
-
-
-
+		
+	 <div class="hero-body">
+		<form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
+			<div class="field">
+                <div class="control" style="float:right; padding-right: 85px;padding-top: 50;">
+                    <input type="text" placeholder="Item" name="item"
+                            id="item" autofocus="" >
+					<button style="color: hsl(204, 86%, 53%); border-radius: 15px 50px 30px;">Search</button>
+                </div>
+            </div>
+            
+        </form>
     </div>
+	
     <div class="hero-body">
         <div class="columns">
             <div class="column is-one-fifth">
@@ -87,12 +81,12 @@
                     <div class="container" style="width:100%">
                         <div class="panel-group" id="accordion">
                             <div class="panel panel-default">
-                                <div class="panel-heading" style="border-left:5px solid blue">
+                                <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                                            href="#menuOne">
                                             <b>METAL TYPE</b> <span class="glyphicon glyphicon-minus"
-                                                                    style="float:right; color:blue"></span>
+                                                                    style="float:right; color:cyan"></span>
 
                                         </a>
                                     </h4>
@@ -107,12 +101,12 @@
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading" style="border-left:5px solid blue">
+                                <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                                            href="#menuTwo">
                                             <b>METAL COLOR</b><span class="glyphicon glyphicon-minus"
-                                                                    style="float:right; color:blue"></span>
+                                                                    style="float:right; color:cyan"></span>
                                         </a>
                                     </h4>
                                 </div>
@@ -126,52 +120,20 @@
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading" style="border-left:5px solid blue">
-                                    <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuThree">
-                                            <b>METAL KARAT</b> <span class="glyphicon glyphicon-minus"
-                                                                     style="float:right; color:blue"></span>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="menuThree" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <p>Place Holder</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" style="border-left:5px solid blue">
-                                    <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuFour">
-
-                                            <b>ENGRAVABLE</b> <span class="glyphicon glyphicon-minus"
-                                                                    style="float:right; color:blue"></span>
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="menuFour" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <p>Place Holder</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" style="border-left:5px solid blue">
+                                <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                                            href="#menuFive">
 
                                             <b>GENDER</b> <span class="glyphicon glyphicon-minus"
-                                                                style="float:right; color:blue"></span>
+                                                                style="float:right; color:cyan"></span>
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="menuFive" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <p>Place Holder</p>
+                                        <input id="Checkbox1" type="checkbox"/> Male<br/>
+                                        <input id="Checkbox1" type="checkbox"/> Female<br/>
                                     </div>
                                 </div>
                             </div>
