@@ -190,16 +190,16 @@ if ($qr->execute()) {
 
       var pName = document.createTextNode(\"" . $lineItem['pName'] . "\");
       var column2 = document.createElement(\"DIV\");
-      column2.setAttribute(\"class\", \"column\");
+      column2.setAttribute(\"class\", \"column is-one-fifth\");
       column2.appendChild(pName);
 
       var price = document.createTextNode(\"" . $lineItem['price'] . "\");
       var column3 = document.createElement(\"DIV\");
-      column3.setAttribute(\"class\", \"column\");
+      column3.setAttribute(\"class\", \"column is-one-fifth\");
       column3.appendChild(price);
 
       var column4 = document.createElement(\"DIV\");
-      column4.setAttribute(\"class\", \"column\");
+      column4.setAttribute(\"class\", \"column is-one-fifth\");
       column4.innerHTML = \"<form target='target' action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='".$lineItem['ppId']."'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1'height='1'></form>\";
 
       bigBox.appendChild(column1);
