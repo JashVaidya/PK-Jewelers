@@ -161,6 +161,7 @@
 </footer>
 </body>
 
+<script src="JS/main.js" type="text/javascript"></script>
 </html>
 
 <?php
