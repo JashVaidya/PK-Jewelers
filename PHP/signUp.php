@@ -51,7 +51,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
             <div class="container">
                 <div class="navbar-brand">
                     <a class="navbar-item">
-                        <h1 class="title is-1 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
+                        <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                     <span></span>
