@@ -2,6 +2,13 @@
 //Starts new session unless a connection key is already stored in the browser
 session_start();
 
+session_start();
+$userfName = "Sign In";
+if(isset($_SESSION["userfName"]))
+{
+  $userfName = $_SESSION["userfName"];
+}
+
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -11,14 +18,14 @@ if (isset($_SESSION["userEmail"])) {
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
 	//If the user filled out one of the fields..
-	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName']) || 
+	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName']) ||
 	                          isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
 		//Connect to the DB
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
-	
+
+
 		if(isset($_POST['email'])){
 			//Updates one cell of the record
 			$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email =....."); // !! I'm not sure how to do this because the PK is the email !!
@@ -39,7 +46,7 @@ if (isset($_SESSION["userEmail"])) {
 			$qr = $db->prepare("UPDATE Customer SET lName = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
 			$qr->execute(array($_POST['lName']));
 		}
-		if(isset($_POST['street']){ 
+		if(isset($_POST['street']){
 			//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
 			if(isset(POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
 				//Updates the address and fields associated with the address if they entered all the data
@@ -118,7 +125,7 @@ else {
             </div>
         </header>
     </div>
-	
+
 	<div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-6 is-offset-4">
