@@ -83,8 +83,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuOne">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
                                             <b>METAL TYPE</b> <span class="glyphicon glyphicon-minus"
                                                                     style="float:right; color:cyan"></span>
 
@@ -96,15 +95,13 @@
                                         <input id="Checkbox1" type="checkbox"/> Gold<br/>
                                         <input id="Checkbox1" type="checkbox"/> Silver<br/>
                                         <input id="Checkbox1" type="checkbox"/> Platinum<br/>
-                                        <input id="Checkbox1" type="checkbox"/> Palladium
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuTwo">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
                                             <b>METAL COLOR</b><span class="glyphicon glyphicon-minus"
                                                                     style="float:right; color:cyan"></span>
                                         </a>
@@ -122,8 +119,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuFive">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
 
                                             <b>GENDER</b> <span class="glyphicon glyphicon-minus"
                                                                 style="float:right; color:cyan"></span>
