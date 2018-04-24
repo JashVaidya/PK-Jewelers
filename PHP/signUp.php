@@ -50,8 +50,8 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <h1 class="title is-1 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
+                    <a href="../index.html" class="navbar-item">
+                        <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                     <span></span>
@@ -183,7 +183,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
     <div class="container">
         <div class="content has-text-centered">
             <ul style="list-style-type: none;">
-                <li><a class="has-text-white">(540)-366-1119    |</a></li>
+                <li><a href="tel:5403661119" class="has-text-white">(540)-366-1119    |</a></li>
                 <li><a class="has-text-white">4802 Valley View Blvd. NW #t63b, Roanoke, VA 24012    |</a></li>
                 <li><a class="has-text-white">mehulvaidya2008@gmail.com</a></li>
             </ul>

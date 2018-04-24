@@ -24,8 +24,8 @@
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <h1 class="title is-1 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
+                    <a href="../index.html"  class="navbar-item">
+                        <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
                     <span></span>
@@ -60,20 +60,22 @@
                 </div>
             </div>
         </header>
-		
-	 <div class="hero-body">
-		<form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
-			<div class="field">
-                <div class="control" style="float:right; padding-right: 85px;padding-top: 50;">
-                    <input type="text" placeholder="Item" name="item"
-                            id="item" autofocus="" >
-					<button style="color: hsl(204, 86%, 53%); border-radius: 15px 50px 30px;">Search</button>
+
+    <div class="hero-body">
+        <form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
+                <div class="field has-addons">
+                    <div class="control" > 
+                        <input class="input" type="text" placeholder="Item" name="item"
+                                id="item" autofocus="" >
+                        
+                    </div>
+                    <div class="control">
+                            <button class="button" style="color: hsl(204, 86%, 53%);">Search</button>
+                    </div>
                 </div>
-            </div>
-            
         </form>
     </div>
-	
+
     <div class="hero-body">
         <div class="columns">
             <div class="column is-one-fifth">
@@ -148,7 +150,7 @@
     <div class="container">
         <div class="content has-text-centered">
             <ul style="list-style-type: none;">
-                <li><a class="has-text-white">(540)-366-1119    |</a></li>
+                <li><a href="tel:5403661119" class="has-text-white">(540)-366-1119    |</a></li>
                 <li><a class="has-text-white">4802 Valley View Blvd. NW #t63b, Roanoke, VA 24012    |</a></li>
                 <li><a class="has-text-white">mehulvaidya2008@gmail.com</a></li>
             </ul>
@@ -157,6 +159,7 @@
 </footer>
 </body>
 
+<script src="../JS/main.js" type="text/javascript"></script>
 </html>
 
 <?php
@@ -185,17 +188,17 @@ if ($qr->execute()) {
 
       var pName = document.createTextNode(\"" . $lineItem['pName'] . "\");
       var column2 = document.createElement(\"DIV\");
-      column2.setAttribute(\"class\", \"column\");
+      column2.setAttribute(\"class\", \"column is-one-fifth\");
       column2.appendChild(pName);
 
       var price = document.createTextNode(\"" . $lineItem['price'] . "\");
       var column3 = document.createElement(\"DIV\");
-      column3.setAttribute(\"class\", \"column\");
+      column3.setAttribute(\"class\", \"column is-one-fifth\");
       column3.appendChild(price);
 
       var column4 = document.createElement(\"DIV\");
-      column4.setAttribute(\"class\", \"column\");
-      column4.innerHTML = \"<form target='paypal' action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='".$lineItem['ppId']."'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1'height='1'></form>\";
+      column4.setAttribute(\"class\", \"column is-one-fifth\");
+      column4.innerHTML = \"<form target='target' action='https://www.paypal.com/cgi-bin/webscr' method='post'><input type='hidden' name='cmd' value='_s-xclick'><input type='hidden' name='hosted_button_id' value='".$lineItem['ppId']."'><input type='image' src='https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif' border='0' name='submit' alt='PayPal - The safer, easier way to pay online!'><img alt='' border='0' src='https://www.paypalobjects.com/en_US/i/scr/pixel.gif' width='1'height='1'></form>\";
 
       bigBox.appendChild(column1);
       bigBox.appendChild(column2);
