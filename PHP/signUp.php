@@ -143,6 +143,16 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                                        id="city" required>
                             </div>
                         </div>
+<!--State Field-->
+                        <div class="field">
+                          <div class="control">
+                            <div class="select is-large is-fullwidth">
+                              <select id="state" name="state" class="has-text-centered">
+                                <option value="" selected>Select a State</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
 <!--Country Field-->
                         <div class="field">
                           <div class="control has-icons-left">
@@ -153,16 +163,6 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                             </div>
                             <div class="icon is-small is-left">
                               <i class="fas fa-globe"></i>
-                            </div>
-                          </div>
-                        </div>
-<!--State Field-->
-                        <div class="field">
-                          <div class="control">
-                            <div class="select is-large is-fullwidth">
-                              <select id="state" name="state" class="has-text-centered">
-                                <option value="" selected>Select a State</option>
-                              </select>
                             </div>
                           </div>
                         </div>

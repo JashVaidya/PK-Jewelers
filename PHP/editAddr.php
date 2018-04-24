@@ -85,8 +85,8 @@ if (isset($_SESSION["userEmail"])) {
                         <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
-                        <a class="navbar-item underline">
-                            <?php echo $_SESSION["userfName"]; ?>
+                          <a href="signIn.php" class="navbar-item underline">
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
@@ -111,14 +111,14 @@ if (isset($_SESSION["userEmail"])) {
 	<div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-6 is-offset-4">
-                <h3 class="title has-text-grey">Edit Profile Information</h3>
+                <h3 class="title has-text-grey">Change Address</h3>
                 <h2 style="color: red;"><span><?php echo $output; ?></span></h2>
                 <div class="box">
                     <form name="form-signup" method="POST" action="./editAddr.php">
 <!--Address Field-->
                         <div class="field">
                             <div class="control">
-								<p><?php echo $userDetails['street']; ?> </p>
+								<!--<p><//?php echo $userDetails['street']; ?> </p>-->
                                 <input class="input is-large" type="text" placeholder="New Street" name="addr"
                                        id="addr">
                             </div>
@@ -126,33 +126,33 @@ if (isset($_SESSION["userEmail"])) {
 <!--City Field-->
                         <div class="field">
                             <div class="control">
-								<p><?php echo $userDetails['city'] ?> </p>
+								<!--<p><?php echo $userDetails['city'] ?> </p>-->
                                 <input class="input is-large" type="text" placeholder="New City" name="city"
                                        id="city" required>
                             </div>
+                        </div>
+<!--State Field-->
+                        <div class="field">
+                          <div class="control">
+						  <p> <!--<//?php echo $userDetails['state']; ?></p>-->
+                            <div class="select is-large is-fullwidth">
+                              <select id="state" name="state" class="has-text-centered">
+                                <option value="" selected>Select a State</option>
+                              </select>
+                            </div>
+                          </div>
                         </div>
 <!--Country Field-->
                         <div class="field">
                           <div class="control has-icons-left">
                             <div class="select is-large is-fullwidth">
-								<p><?php echo $userDetails['country']  ?> </p>
+								<!--<p><//?php echo $userDetails['country']  ?> </p>-->
                               <select id="country" name="country" class="has-text-centered">
                                 <option value="" selected>Select a Country</option>
                               </select>
                             </div>
                             <div class="icon is-small is-left">
                               <i class="fas fa-globe"></i>
-                            </div>
-                          </div>
-                        </div>
-<!--State Field-->
-                        <div class="field">
-                          <div class="control">
-						  <p> <?php echo $userDetails['state']; ?></p>
-                            <div class="select is-large is-fullwidth">
-                              <select id="state" name="state" class="has-text-centered">
-                                <option value="" selected>Select a State</option>
-                              </select>
                             </div>
                           </div>
                         </div>
@@ -175,6 +175,8 @@ if (isset($_SESSION["userEmail"])) {
     </div>
 </footer>
 </body>
+<!--Populates the Country and State Dropdown choices-->
+<script src="../JS/regionOptions.js"></script>
 <script src="../JS/main.js" type="text/javascript"></script>
 <!--<script src="../JS/instantclick.min.js" data-no-instant></script>-->
 <!--<script data-no-instant>InstantClick.init();</script>-->

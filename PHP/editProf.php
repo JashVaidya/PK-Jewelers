@@ -94,8 +94,8 @@ if (isset($_SESSION["userEmail"])) {
                         <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
-                        <a class="navbar-item underline">
-                            <?php echo $_SESSION["userfName"]; ?>
+                          <a href="signIn.php" class="navbar-item underline">
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact

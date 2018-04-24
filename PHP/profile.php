@@ -75,10 +75,11 @@ if (isset($_SESSION["userEmail"])) {
             </div>
         </header>
     </div>
-
+	
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
         <div class="container">
+			<h3 class="title has-text-grey">Your Profile</h3><br><br><br>
             <h1 class="subtitle">
                 <?php echo $userDetails['fName'] . " " . $userDetails['lName']; ?>
             </h1>
@@ -91,7 +92,7 @@ if (isset($_SESSION["userEmail"])) {
             <h1 class="subtitle">
                 <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state']; ?>
             </h1>
-			<a href="./editProf.php">Edit Profile</a> &nbsp;·&nbsp;
+			<a href="./editProf.php">Edit Info</a> &nbsp;·&nbsp;<a href="./editAddr.php">Edit Address</a> &nbsp;·&nbsp;<a href="./editPass.php">Change Password</a> 
         </div>
     </div>
 </section>
