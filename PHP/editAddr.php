@@ -33,26 +33,28 @@ echo " 2";
 			echo " 5.1"; 
 			$qr->bindValue(':newVal', "{$_POST['country']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			//$qr->execute(array($_POST['country']));
-			echo " 5.2"; 
+			$qr->execute();
+			
 			$qr = $db->prepare("UPDATE Customer SET state = :newVal WHERE email = :userEmail"); 
 			$qr->bindValue(':newVal', "{$_POST['state']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			echo " 5.4"; 
+			$qr->execute();
+			
 			$qr = $db->prepare("UPDATE Customer SET city = :newVal WHERE email = :userEmail"); 
 			$qr->bindValue(':newVal', "{$_POST['city']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			echo " 5.5"; 
+			$qr->execute();
+			
 			$qr = $db->prepare("UPDATE Customer SET  street = :newVal WHERE email = :userEmail"); 
 			$qr->bindValue(':newVal', "{$_POST['addr']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			echo " 5.6"; 
+			$qr->execute();
+			$output = "Address changed successfully.";
 		}
 		else{
-			echo " 6"; 
 			$output = "Not a valid address";
 		}
-		echo " 7"; 
+		
 	}
 }else {echo " 8"; 
     echo "Profile not found";

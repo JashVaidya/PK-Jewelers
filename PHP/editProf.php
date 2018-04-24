@@ -18,7 +18,7 @@ if (isset($_SESSION["userEmail"])) {echo " 2";
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
 	//If the user filled out one of the fields..
-	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName'])) {
+	if(isset($_POST['email']) || isset($_POST['phone']) || isset($_POST['fName']) || isset($_POST['lName'])) {
 		//Connect to the DB 
 		echo " 3"; 
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
@@ -26,29 +26,32 @@ if (isset($_SESSION["userEmail"])) {echo " 2";
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-		if(isset($_POST['email'])){
+		if(isset($_POST['email']) &&isset($_POST['phone']) && isset($_POST['fName']) && isset($_POST['lName']) ){
 			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email = :userEmail"); 
-			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
-			$qr->execute(array($_POST['email']));
+			echo " 4"; 
+			$qr = $db->prepare("UPDATE Customer SET email = :newVal WHERE email = :userEmail"); 
+			$qr->bindValue(':newVal', "{$_POST['email']}");
+			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
+			$qr->execute();
+		echo " 5"; 
+			$qr = $db->prepare("UPDATE Customer SET phone = :newVal WHERE email = :userEmail"); 
+			$qr->bindValue(':newVal', "{$_POST['phone']}");
+			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
+			$qr->execute();
+			echo " 6"; 
+			$qr = $db->prepare("UPDATE Customer SET fName = :newVal WHERE email =:userEmail"); 
+			$qr->bindValue(':newVal', "{$_POST['fName']}");
+			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
+			$qr->execute();
+			echo " 7"; 
+			$qr = $db->prepare("UPDATE Customer SET lName = :newVal WHERE email = :userEmail"); 
+			$qr->bindValue(':newVal', "{$_POST['email']}");
+			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
+			$qr->execute();
+			$output = "Information changed successfully.";
 		}
-		if(isset($_POST['pass'])){
-			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET password = ? WHERE email = :userEmail"); 
-			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
-			$qr->execute(array($_POST['pass']));
-		}
-		if(isset($_POST['fName'])){
-			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET fName = ? WHERE email =:userEmail"); 
-			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
-			$qr->execute(array($_POST['fName']));
-		}
-		if(isset($_POST['lName'])){
-			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET lName = ? WHERE email = :userEmail"); 
-			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
-			$qr->execute(array($_POST['lName']));
+		else{
+			$output = "Not valid input";
 		}
 	}
 }else {
