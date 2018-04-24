@@ -45,7 +45,7 @@ if (isset($_SESSION["userEmail"])) {echo " 2";
 			$qr->execute();
 			echo " 7"; 
 			$qr = $db->prepare("UPDATE Customer SET lName = :newVal WHERE email = :userEmail"); 
-			$qr->bindValue(':newVal', "{$_POST['email']}");
+			$qr->bindValue(':newVal', "{$_POST['lName']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
 			$output = "Information changed successfully.";
