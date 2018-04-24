@@ -60,20 +60,22 @@
                 </div>
             </div>
         </header>
-		
-	 <div class="hero-body">
-		<form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
-			<div class="field">
-                <div class="control" style="float:right; padding-right: 85px;padding-top: 50;">
-                    <input type="text" placeholder="Item" name="item"
-                            id="item" autofocus="" >
-					<button style="color: hsl(204, 86%, 53%); border-radius: 15px 50px 30px;">Search</button>
+
+    <div class="hero-body">
+        <form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
+                <div class="field has-addons">
+                    <div class="control" > 
+                        <input class="input" type="text" placeholder="Item" name="item"
+                                id="item" autofocus="" >
+                        
+                    </div>
+                    <div class="control">
+                            <button class="button" style="color: hsl(204, 86%, 53%);">Search</button>
+                    </div>
                 </div>
-            </div>
-            
         </form>
     </div>
-	
+
     <div class="hero-body">
         <div class="columns">
             <div class="column is-one-fifth">
