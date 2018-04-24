@@ -36,7 +36,7 @@ if (isset($_SESSION["userEmail"])) {
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="../index.html"  class="navbar-item">
+                    <a href="../index.php"  class="navbar-item">
                         <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -47,7 +47,7 @@ if (isset($_SESSION["userEmail"])) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
                         <a href="search.php" class="navbar-item underline">
