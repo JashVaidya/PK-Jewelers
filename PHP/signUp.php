@@ -22,7 +22,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
     if($accCreated)
     {
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+        header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/signIn.php');
     }
   }
   else {
