@@ -44,7 +44,7 @@ $userfName = "Sign In";
                             Shop
                         </a>
                         <a href="PHP/signIn.php" class="navbar-item underline">
-                            
+                            <?php echo $userfName; ?>
                         </a>
 						<a href="PHP/contact.php" class="navbar-item underline">
 							Contact

@@ -1,6 +1,10 @@
 <?php
 //Starts a PHP session to be used on multiple pages, accesd with $_SESSION variable
 session_start();
+if(isset($_SESSION["userfName"]))
+{
+  header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/PHP/profile.php');
+}
 
 //Defining the salting encryption standard
 define("SALT", 'ASDGasdfvartWFGSD#$5t2345HFDSY45yw4rget4312');
