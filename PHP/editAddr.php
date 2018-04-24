@@ -30,13 +30,19 @@ echo " 2";
 			//Updates the address and fields associated with the address if they entered all the data
 			echo " 5"; 
 			$qr = $db->prepare("UPDATE Customer SET country = ? WHERE email = :userEmail"); 
-			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
+			$qr->bindValue(':userEmail', "{$_SESSION["userEmail"]}");
 			$qr->execute(array($_POST['country']));
+			
 			$qr = $db->prepare("UPDATE Customer SET state = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_SESSION["userEmail"]}");
 			$qr->execute(array($_POST['state']));
+			
 			$qr = $db->prepare("UPDATE Customer SET city = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_SESSION["userEmail"]}");
 			$qr->execute(array($_POST['city']));
-			$qr = $db->prepare("UPDATE Customer SET  strees = ? WHERE email = :userEmail"); 
+			
+			$qr = $db->prepare("UPDATE Customer SET  street = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_SESSION["userEmail"]}");
 			$qr->execute(array($_POST['addr']));
 		}
 		else{
