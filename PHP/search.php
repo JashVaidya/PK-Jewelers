@@ -50,7 +50,7 @@ if(isset($_SESSION["userfName"]))
                             Shop
                         </a>
                         <a href="signIn.php" class="navbar-item underline">
-                            <?php echo $userName; ?>
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
