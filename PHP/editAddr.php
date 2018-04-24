@@ -13,20 +13,22 @@ $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
-if (isset($_SESSION["userEmail"])) {
+if (isset($_SESSION["userEmail"])) { echo "1"; 
     $qr->execute(array($_SESSION["userEmail"]));
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
-
+echo " 2"; 
 	//If the user filled out one of the fields..
 	if(isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
 		//Connect to the DB
+		echo " 3"; 
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+		echo " 4"; 
 		//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
-		if(isset(POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
+		if(isset($_POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
 			//Updates the address and fields associated with the address if they entered all the data
+			echo " 5"; 
 			$qr = $db->prepare("UPDATE Customer SET country = ? WHERE email = :userEmail"); 
 			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['country']));
@@ -38,11 +40,12 @@ if (isset($_SESSION["userEmail"])) {
 			$qr->execute(array($_POST['addr']));
 		}
 		else{
+			echo " 6"; 
 			$output = "Not a valid address";
 		}
-		
+		echo " 7"; 
 	}
-}else {
+}else {echo " 8"; 
     echo "Profile not found";
 }
 
