@@ -50,11 +50,10 @@ if (isset($_SESSION["userEmail"])) {
 			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['lName']));
 		}
-<<<<<<< HEAD
+
 		/*if(isset($_POST['street']){ 
-=======
+
 		if(isset($_POST['street']){
->>>>>>> f07d1ad5a4dbacf8af7a83d35b6a6ac16ce76db7
 			//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
 			if(isset(POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
 				//Updates the address and fields associated with the address if they entered all the data
