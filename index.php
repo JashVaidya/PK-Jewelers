@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+$userfName = "Sign In";
+ if(isset($_SESSION["userfName"]))
+ {
+   $userfName = $_SESSION["userfName"];
+ }
+ ?>
 <html lang="en">
 
 <head>
@@ -36,7 +44,7 @@
                             Shop
                         </a>
                         <a href="PHP/signIn.php" class="navbar-item underline">
-                            Sign In
+                            <?php echo $userfName; ?>
                         </a>
 						<a href="PHP/contact.php" class="navbar-item underline">
 							Contact

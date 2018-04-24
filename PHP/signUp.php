@@ -22,7 +22,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
     if($accCreated)
     {
         $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/profile.php');
+        header('Location: https://' . $_SERVER['HTTP_HOST'] . $uri . '/signIn.php');
     }
   }
   else {
@@ -50,7 +50,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="../index.html" class="navbar-item">
+                    <a href="../index.php" class="navbar-item">
                         <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -61,7 +61,7 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
                         <a href="search.php" class="navbar-item underline">
@@ -143,6 +143,16 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                                        id="city" required>
                             </div>
                         </div>
+<!--State Field-->
+                        <div class="field">
+                          <div class="control">
+                            <div class="select is-large is-fullwidth">
+                              <select id="state" name="state" class="has-text-centered">
+                                <option value="" selected>Select a State</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
 <!--Country Field-->
                         <div class="field">
                           <div class="control has-icons-left">
@@ -153,16 +163,6 @@ if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['fName']) && 
                             </div>
                             <div class="icon is-small is-left">
                               <i class="fas fa-globe"></i>
-                            </div>
-                          </div>
-                        </div>
-<!--State Field-->
-                        <div class="field">
-                          <div class="control">
-                            <div class="select is-large is-fullwidth">
-                              <select id="state" name="state" class="has-text-centered">
-                                <option value="" selected>Select a State</option>
-                              </select>
                             </div>
                           </div>
                         </div>

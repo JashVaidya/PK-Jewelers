@@ -8,6 +8,7 @@ if(isset($_SESSION["userfName"]))
 {
   $userfName = $_SESSION["userfName"];
 }
+
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,39 +19,42 @@ if (isset($_SESSION["userEmail"]))
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
 	//If the user filled out one of the fields..
-	if(isset($_POST['email']) || isset($_POST['phone']) || isset($_POST['fName']) || isset($_POST['lName'])) {
+	if(isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
 		//Connect to the DB
+
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+		//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
+		if(isset($_POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
+			//Updates the address and fields associated with the address if they entered all the data
 
-		if(isset($_POST['email']) &&isset($_POST['phone']) && isset($_POST['fName']) && isset($_POST['lName']) ){
-			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET email = :newVal WHERE email = :userEmail");
-			$qr->bindValue(':newVal', "{$_POST['email']}");
-			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			$qr->execute();
-
-			$qr = $db->prepare("UPDATE Customer SET phone = :newVal WHERE email = :userEmail");
-			$qr->bindValue(':newVal', "{$_POST['phone']}");
+			$qr = $db->prepare("UPDATE Customer SET country = :newVal WHERE email = :userEmail");
+			$qr->bindValue(':newVal', "{$_POST['country']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
 
-			$qr = $db->prepare("UPDATE Customer SET fName = :newVal WHERE email =:userEmail");
-			$qr->bindValue(':newVal', "{$_POST['fName']}");
+			$qr = $db->prepare("UPDATE Customer SET state = :newVal WHERE email = :userEmail");
+			$qr->bindValue(':newVal', "{$_POST['state']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
- 
-			$qr = $db->prepare("UPDATE Customer SET lName = :newVal WHERE email = :userEmail");
-			$qr->bindValue(':newVal', "{$_POST['lName']}");
+
+			$qr = $db->prepare("UPDATE Customer SET city = :newVal WHERE email = :userEmail");
+			$qr->bindValue(':newVal', "{$_POST['city']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
-			$output = "Information changed successfully.";
+
+			$qr = $db->prepare("UPDATE Customer SET  street = :newVal WHERE email = :userEmail");
+			$qr->bindValue(':newVal', "{$_POST['addr']}");
+			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
+			$qr->execute();
+			$output = "Address changed successfully.";
 		}
 		else{
-			$output = "Not valid input";
+			$output = "Not a valid address";
 		}
+
 	}
 }else {
     echo "Profile not found";
@@ -121,43 +125,51 @@ if (isset($_SESSION["userEmail"]))
 	<div class="hero-body">
         <div class="container has-text-centered">
             <div class="column is-6 is-offset-4">
-                <h3 class="title has-text-grey">Edit Profile Information</h3>
+                <h3 class="title has-text-grey">Change Address</h3>
                 <h2 style="color: red;"><span><?php echo $output; ?></span></h2>
                 <div class="box">
-                    <form name="form-signup" method="POST" action="./editProf.php">
-<!--First Name Field-->
+                    <form name="form-signup" method="POST" action="./editAddr.php">
+<!--Address Field-->
                         <div class="field">
                             <div class="control">
-								<p><?php echo $userDetails['fName'] ?> </p>
-                                <input class="input is-large" type="text" placeholder="New First Name" name="fName"
-                                       id="fName" autofocus="" required>
+								<!--<p><//?php echo $userDetails['street']; ?> </p>-->
+                                <input class="input is-large" type="text" placeholder="New Street" name="addr"
+                                       id="addr">
                             </div>
                         </div>
-<!--Last Name Field-->
+<!--City Field-->
                         <div class="field">
                             <div class="control">
-								<p> <?php echo $userDetails['lName']; ?></p>
-                                <input class="input is-large" type="text" placeholder="New Last Name" name="lName"
-                                       id="lName" required>
+								<!--<p><?php echo $userDetails['city'] ?> </p>-->
+                                <input class="input is-large" type="text" placeholder="New City" name="city"
+                                       id="city" required>
                             </div>
                         </div>
-<!--Email Field-->
+<!--State Field-->
                         <div class="field">
-                            <div class="control">
-							<p><?php echo $userDetails['email']; ?></p>
-                                <input class="input is-large" type="email" placeholder="New Email" name="email"
-                                       id="email"  required>
+                          <div class="control">
+						  <p> <!--<//?php echo $userDetails['state']; ?></p>-->
+                            <div class="select is-large is-fullwidth">
+                              <select id="state" name="state" class="has-text-centered">
+                                <option value="" selected>Select a State</option>
+                              </select>
                             </div>
+                          </div>
                         </div>
-<!--Phone Number Field-->
+<!--Country Field-->
                         <div class="field">
-                            <div class="control">
-								<p> <?php echo $userDetails['phone']; ?>  </p>
-                                <input class="input is-large" type="text" placeholder="Phone Number" name="phone"
-                                       id="phone">
+                          <div class="control has-icons-left">
+                            <div class="select is-large is-fullwidth">
+								<!--<p><//?php echo $userDetails['country']  ?> </p>-->
+                              <select id="country" name="country" class="has-text-centered">
+                                <option value="" selected>Select a Country</option>
+                              </select>
                             </div>
+                            <div class="icon is-small is-left">
+                              <i class="fas fa-globe"></i>
+                            </div>
+                          </div>
                         </div>
-
                         <button class="button is-block is-info is-large is-fullwidth">Submit Changes</button>
                     </form>
                 </div>
@@ -177,6 +189,8 @@ if (isset($_SESSION["userEmail"]))
     </div>
 </footer>
 </body>
+<!--Populates the Country and State Dropdown choices-->
+<script src="../JS/regionOptions.js"></script>
 <script src="../JS/main.js" type="text/javascript"></script>
 <!--<script src="../JS/instantclick.min.js" data-no-instant></script>-->
 <!--<script data-no-instant>InstantClick.init();</script>-->

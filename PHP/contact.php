@@ -1,4 +1,11 @@
 <?php
+session_start();
+$userfName = "Sign In";
+if(isset($_SESSION["userfName"]))
+{
+  $userfName = $_SESSION["userfName"];
+}
+
 if (isset($_POST["email"])) {
     $company_email = "jashvaidya7x@gmail.com";
     $name = $_POST["name"];
@@ -48,14 +55,14 @@ if (isset($_POST["email"])) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
                         <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
                         <a href="signIn.php" class="navbar-item underline">
-                            Sign In
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact

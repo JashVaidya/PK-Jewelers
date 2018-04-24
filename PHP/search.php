@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+$userfName = "Sign In";
+if(isset($_SESSION["userfName"]))
+{
+  $userfName = $_SESSION["userfName"];
+}
+ ?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -24,7 +32,7 @@
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="../index.html"  class="navbar-item">
+                    <a href="../index.php"  class="navbar-item">
                         <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -35,14 +43,14 @@
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
                         <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
                         <a href="signIn.php" class="navbar-item underline">
-                            Sign In
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
@@ -64,10 +72,10 @@
     <div class="hero-body">
         <form name="form-shopTest" method="get" action="<?=$_SERVER['PHP_SELF'];?>">
                 <div class="field has-addons">
-                    <div class="control" > 
+                    <div class="control" >
                         <input class="input" type="text" placeholder="Item" name="item"
                                 id="item" autofocus="" >
-                        
+
                     </div>
                     <div class="control">
                             <button class="button" style="color: hsl(204, 86%, 53%);">Search</button>
@@ -85,8 +93,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuOne">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
                                             <b>METAL TYPE</b> <span class="glyphicon glyphicon-minus"
                                                                     style="float:right; color:cyan"></span>
 
@@ -98,15 +105,13 @@
                                         <input id="Checkbox1" type="checkbox"/> Gold<br/>
                                         <input id="Checkbox1" type="checkbox"/> Silver<br/>
                                         <input id="Checkbox1" type="checkbox"/> Platinum<br/>
-                                        <input id="Checkbox1" type="checkbox"/> Palladium
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuTwo">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
                                             <b>METAL COLOR</b><span class="glyphicon glyphicon-minus"
                                                                     style="float:right; color:cyan"></span>
                                         </a>
@@ -124,8 +129,7 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading" style="border-left:5px solid cyan">
                                     <h4 class="panel-title">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                                           href="#menuFive">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
 
                                             <b>GENDER</b> <span class="glyphicon glyphicon-minus"
                                                                 style="float:right; color:cyan"></span>

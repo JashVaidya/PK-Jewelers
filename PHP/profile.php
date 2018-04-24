@@ -1,6 +1,7 @@
 <?php
 //Starts new session unless a connection key is already stored in the browser
 session_start();
+$userfName = $_SESSION["userfName"];
 
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -35,7 +36,7 @@ if (isset($_SESSION["userEmail"])) {
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="../index.html"  class="navbar-item">
+                    <a href="../index.php"  class="navbar-item">
                         <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -46,19 +47,19 @@ if (isset($_SESSION["userEmail"])) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
-                        <a href="shopTest.php" class="navbar-item underline">
+                        <a href="search.php" class="navbar-item underline">
                             Shop
                         </a>
                         <a class="navbar-item underline">
-                            <?php echo $_SESSION["userfName"]; ?>
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
                         </a>
-                        <a onclick="signOut()" class="navbar-item underline">
+                        <a href="signOut.php" class="navbar-item underline">
                             Sign Out
                             <a  class="navbar-item underline">
                               <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
@@ -74,10 +75,11 @@ if (isset($_SESSION["userEmail"])) {
             </div>
         </header>
     </div>
-
+	
     <!-- Hero content: will be in the middle -->
     <div class="hero-body">
         <div class="container">
+			<h3 class="title has-text-grey">Your Profile</h3><br><br><br>
             <h1 class="subtitle">
                 <?php echo $userDetails['fName'] . " " . $userDetails['lName']; ?>
             </h1>
@@ -90,6 +92,7 @@ if (isset($_SESSION["userEmail"])) {
             <h1 class="subtitle">
                 <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state']; ?>
             </h1>
+			<a href="./editProf.php">Edit Info</a> &nbsp;·&nbsp;<a href="./editAddr.php">Edit Address</a> &nbsp;·&nbsp;<a href="./editPass.php">Change Password</a> 
         </div>
     </div>
 </section>

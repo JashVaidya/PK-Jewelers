@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+$userfName = "Sign In";
+if(isset($_SESSION["userfName"]))
+{
+  $userfName = $_SESSION["userfName"];
+}
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $qr = $db->prepare("SELECT * FROM Inventory");
 //echo $qr;
@@ -25,7 +29,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
         <header class="navbar">
             <div class="container">
                 <div class="navbar-brand">
-                    <a href="../index.html"  class="navbar-item">
+                    <a href="../index.php"  class="navbar-item">
                         <h1 class="title is-2 is-blue">PK <i class="far fa-gem fa-sm"></i> JEWELERS</h1>
                     </a>
                     <span class="navbar-burger burger" data-target="navbarMenuHeroC">
@@ -36,14 +40,14 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
 						<a class="navbar-item underline">
                             Shop
                         </a>
                         <a href="signIn.php" class="navbar-item underline">
-                            Sign In
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
