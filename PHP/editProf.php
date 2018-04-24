@@ -8,19 +8,19 @@ if(isset($_SESSION["userfName"]))
 {
   $userfName = $_SESSION["userfName"];
 }
-
+echo " 1"; 
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
-if (isset($_SESSION["userEmail"])) {
+if (isset($_SESSION["userEmail"])) {echo " 2"; 
     $qr->execute(array($_SESSION["userEmail"]));
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
 	//If the user filled out one of the fields..
-	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName']) ||
-	                          isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
-		//Connect to the DB
+	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName'])) {
+		//Connect to the DB 
+		echo " 3"; 
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
