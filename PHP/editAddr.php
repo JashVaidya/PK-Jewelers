@@ -13,39 +13,39 @@ $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $qr = $db->prepare("SELECT * FROM Customer WHERE email = ?");
-if (isset($_SESSION["userEmail"])) { echo "1"; 
+if (isset($_SESSION["userEmail"]))
+{
     $qr->execute(array($_SESSION["userEmail"]));
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
-echo " 2"; 
+
 	//If the user filled out one of the fields..
 	if(isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
 		//Connect to the DB
-		echo " 3"; 
+
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		echo " 4"; 
+
 		//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
 		if(isset($_POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
 			//Updates the address and fields associated with the address if they entered all the data
-			echo " 5"; 
-			$qr = $db->prepare("UPDATE Customer SET country = :newVal WHERE email = :userEmail"); 
-			echo " 5.1"; 
+
+			$qr = $db->prepare("UPDATE Customer SET country = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['country']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
-			
-			$qr = $db->prepare("UPDATE Customer SET state = :newVal WHERE email = :userEmail"); 
+
+			$qr = $db->prepare("UPDATE Customer SET state = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['state']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
-			
-			$qr = $db->prepare("UPDATE Customer SET city = :newVal WHERE email = :userEmail"); 
+
+			$qr = $db->prepare("UPDATE Customer SET city = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['city']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
-			
-			$qr = $db->prepare("UPDATE Customer SET  street = :newVal WHERE email = :userEmail"); 
+
+			$qr = $db->prepare("UPDATE Customer SET  street = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['addr']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
@@ -54,9 +54,9 @@ echo " 2";
 		else{
 			$output = "Not a valid address";
 		}
-		
+
 	}
-}else {echo " 8"; 
+}else {
     echo "Profile not found";
 }
 
