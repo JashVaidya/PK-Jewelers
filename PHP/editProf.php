@@ -10,21 +10,50 @@ if (isset($_SESSION["userEmail"])) {
     $qr->execute(array($_SESSION["userEmail"]));
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
-	//If the user filled out one of these 5 fields..
-	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName']) || isset($_POST['street'])) {
-	//Connect to the DB
-	$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
-	$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	//If the user filled out one of the fields..
+	if(isset($_POST['email']) || isset($_POST['pass']) || isset($_POST['fName']) || isset($_POST['lName']) || 
+	                          isset($_POST['country']) || isset($_POST['state']) || isset($_POST['city']) || isset($_POST['addr'])) {
+		//Connect to the DB
+		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
+		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
 	
-	if(isset($_POST['email'])
-		//Queries the database for some info, in this case, all of the columns. This is not important right now, will change later on when known columns are needed
-		$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email =....."); //I'm not sure how to do this because we don't have a CID right now
-		$qr->execute(array($_POST['email']));
-// did not finish, I was thinking an if statement for if they just entered an email, another if for if they changed their first name, last name, phone,email, and address. ---
-		
-} else {
+		if(isset($_POST['email'])){
+			//Updates one cell of the record
+			$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email =....."); // !! I'm not sure how to do this because the PK is the email !!
+			$qr->execute(array($_POST['email']));
+		}
+		if(isset($_POST['pass'])){
+			//Updates one cell of the record
+			$qr = $db->prepare("UPDATE Customer SET password = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr->execute(array($_POST['pass']));
+		}
+		if(isset($_POST['fName'])){
+			//Updates one cell of the record
+			$qr = $db->prepare("UPDATE Customer SET fName = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr->execute(array($_POST['fName']));
+		}
+		if(isset($_POST['lName'])){
+			//Updates one cell of the record
+			$qr = $db->prepare("UPDATE Customer SET lName = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr->execute(array($_POST['lName']));
+		}
+		if(isset($_POST['street']){ 
+			//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
+			if(isset(POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
+				//Updates the address and fields associated with the address if they entered all the data
+				$qr = $db->prepare("UPDATE Customer SET country = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+				$qr->execute(array($_POST['country']));
+				$qr = $db->prepare("UPDATE Customer SET state = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+				$qr->execute(array($_POST['state']));
+			}
+			else{
+				$output = "Not a valid address";
+			}
+		}
+	}
+else {
     echo "Profile not found";
 }
 
