@@ -55,7 +55,7 @@ if (isset($_POST["email"])) {
                 </div>
                 <div id="navbarMenuHeroC" class="navbar-menu has-text-centered">
                     <div class="navbar-end">
-                        <a href="../index.html" class="navbar-item underline">
+                        <a href="../index.php" class="navbar-item underline">
                             Home
                         </a>
                         <a href="search.php" class="navbar-item underline">
