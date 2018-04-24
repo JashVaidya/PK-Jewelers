@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+$userfName = "Sign In";
+if(isset($_SESSION["userfName"]))
+{
+  $userfName = $_SESSION["userfName"];
+}
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $qr = $db->prepare("SELECT * FROM Inventory");
 //echo $qr;
@@ -43,7 +47,7 @@ $qr = $db->prepare("SELECT * FROM Inventory");
                             Shop
                         </a>
                         <a href="signIn.php" class="navbar-item underline">
-                            Sign In
+                            <?php echo $userName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact

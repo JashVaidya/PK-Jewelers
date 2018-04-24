@@ -1,6 +1,7 @@
 <?php
 //Starts new session unless a connection key is already stored in the browser
 session_start();
+$userfName = $_SESSION["userfName"];
 
 $db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -53,12 +54,12 @@ if (isset($_SESSION["userEmail"])) {
                             Shop
                         </a>
                         <a class="navbar-item underline">
-                            <?php echo $_SESSION["userfName"]; ?>
+                            <?php echo $userfName; ?>
                         </a>
                         <a href="contact.php" class="navbar-item underline">
                             Contact
                         </a>
-                        <a onclick="signOut()" class="navbar-item underline">
+                        <a href="signOut.php" class="navbar-item underline">
                             Sign Out
                             <a  class="navbar-item underline">
                               <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
