@@ -90,6 +90,7 @@ if (isset($_SESSION["userEmail"])) {
             <h1 class="subtitle">
                 <?php echo $userDetails['street'] . " " . $userDetails['city'] . ", " . $userDetails['state']; ?>
             </h1>
+			<a href="./editProf.php">Edit Profile</a> &nbsp;·&nbsp;
         </div>
     </div>
 </section>

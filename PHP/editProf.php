@@ -21,39 +21,48 @@ if (isset($_SESSION["userEmail"])) {
 	
 		if(isset($_POST['email'])){
 			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email =....."); // !! I'm not sure how to do this because the PK is the email !!
+			$qr = $db->prepare("UPDATE Customer SET email = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['email']));
 		}
 		if(isset($_POST['pass'])){
 			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET password = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr = $db->prepare("UPDATE Customer SET password = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['pass']));
 		}
 		if(isset($_POST['fName'])){
 			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET fName = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr = $db->prepare("UPDATE Customer SET fName = ? WHERE email =:userEmail"); 
+			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['fName']));
 		}
 		if(isset($_POST['lName'])){
 			//Updates one cell of the record
-			$qr = $db->prepare("UPDATE Customer SET lName = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+			$qr = $db->prepare("UPDATE Customer SET lName = ? WHERE email = :userEmail"); 
+			$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 			$qr->execute(array($_POST['lName']));
 		}
-		if(isset($_POST['street']){ 
+		/*if(isset($_POST['street']){ 
 			//if they've set street, city, state, AND country, then they changed their address successfully. otherwise they get an error
 			if(isset(POST['country']) && isset($_POST['state']) && isset($_POST['city']) && isset($_POST['addr'])){
 				//Updates the address and fields associated with the address if they entered all the data
-				$qr = $db->prepare("UPDATE Customer SET country = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+				$qr = $db->prepare("UPDATE Customer SET country = ? WHERE email = :userEmail"); 
+				$qr->bindValue(':userEmail', "{$_GET['userEmail']}");
 				$qr->execute(array($_POST['country']));
-				$qr = $db->prepare("UPDATE Customer SET state = ? WHERE email =....."); // !! I'm not sure what to put for the email !!
+				$qr = $db->prepare("UPDATE Customer SET state = ? WHERE email = :userEmail"); 
 				$qr->execute(array($_POST['state']));
+				$qr = $db->prepare("UPDATE Customer SET city = ? WHERE email = :userEmail"); 
+				$qr->execute(array($_POST['city']));
+				$qr = $db->prepare("UPDATE Customer SET  strees = ? WHERE email = :userEmail"); 
+				$qr->execute(array($_POST['addr']));
 			}
 			else{
 				$output = "Not a valid address";
 			}
-		}
+		}*/
 	}
-else {
+}else {
     echo "Profile not found";
 }
 
