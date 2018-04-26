@@ -199,7 +199,7 @@ if ($qr->execute()) {
       column2.setAttribute(\"class\", \"column is-one-fifth\");
       column2.appendChild(pName);
 
-      var price = document.createTextNode(\"" . $lineItem['price'] . "\");
+      var price = document.createTextNode(\"$" . $lineItem['price'] . "\");
       var column3 = document.createElement(\"DIV\");
       column3.setAttribute(\"class\", \"column is-one-fifth\");
       column3.appendChild(price);

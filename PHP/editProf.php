@@ -18,42 +18,57 @@ if (isset($_SESSION["userEmail"]))
     $userDetails = $qr->fetch(PDO::FETCH_ASSOC);
 
 	//If the user filled out one of the fields..
-	if(isset($_POST['email']) || isset($_POST['phone']) || isset($_POST['fName']) || isset($_POST['lName'])) {
+	if(isset($_POST['email']) || isset($_POST['phone']) || isset($_POST['fName']) || isset($_POST['lName']))
+  {
 		//Connect to the DB
 		$db = new PDO('mysql:host=localhost;dbname=pkjewelers', 'fellowship', 'Ns42Wdu93J3lwgC');
 		$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-		if(isset($_POST['email']) &&isset($_POST['phone']) && isset($_POST['fName']) && isset($_POST['lName']) ){
-			//Updates one cell of the record
+		//Updates one cell of the record
+    if($_POST['email']  != null)
+    {
 			$qr = $db->prepare("UPDATE Customer SET email = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['email']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			$qr->execute();
+			if($qr->execute())
+      {
+        $_SESSION["userEmail"] = $_POST['email'];
+      }
+    }
 
+    if($_POST['phone'] != null)
+    {
 			$qr = $db->prepare("UPDATE Customer SET phone = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['phone']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
+    }
 
+    if($_POST['fName']  != null)
+    {
 			$qr = $db->prepare("UPDATE Customer SET fName = :newVal WHERE email =:userEmail");
 			$qr->bindValue(':newVal', "{$_POST['fName']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
-			$qr->execute();
- 
+			if($qr->execute())
+      {
+        $_SESSION["userfName"] = $_POST['fName'];
+      }
+    }
+
+    if($_POST['lName']  != null)
+    {
 			$qr = $db->prepare("UPDATE Customer SET lName = :newVal WHERE email = :userEmail");
 			$qr->bindValue(':newVal', "{$_POST['lName']}");
 			$qr->bindValue(':userEmail',"{$_SESSION["userEmail"]}" );
 			$qr->execute();
-			$output = "Information changed successfully.";
-		}
-		else{
-			$output = "Not valid input";
-		}
+    }
+    $output = "Profile updated";
 	}
-}else {
-    echo "Profile not found";
+}
+else
+{
+    $output = "Profile not found";
 }
 
 ?>
@@ -130,7 +145,7 @@ if (isset($_SESSION["userEmail"]))
                             <div class="control">
 								<p><?php echo $userDetails['fName'] ?> </p>
                                 <input class="input is-large" type="text" placeholder="New First Name" name="fName"
-                                       id="fName" autofocus="" required>
+                                       id="fName" autofocus="">
                             </div>
                         </div>
 <!--Last Name Field-->
@@ -138,7 +153,7 @@ if (isset($_SESSION["userEmail"]))
                             <div class="control">
 								<p> <?php echo $userDetails['lName']; ?></p>
                                 <input class="input is-large" type="text" placeholder="New Last Name" name="lName"
-                                       id="lName" required>
+                                       id="lName">
                             </div>
                         </div>
 <!--Email Field-->
@@ -146,7 +161,7 @@ if (isset($_SESSION["userEmail"]))
                             <div class="control">
 							<p><?php echo $userDetails['email']; ?></p>
                                 <input class="input is-large" type="email" placeholder="New Email" name="email"
-                                       id="email"  required>
+                                       id="email">
                             </div>
                         </div>
 <!--Phone Number Field-->

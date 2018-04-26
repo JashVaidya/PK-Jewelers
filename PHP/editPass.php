@@ -45,10 +45,6 @@ if(isset($_POST['oldPass']) && isset($_POST['newPass']))
       $output = "Email not found";
   }
 }
-else
-{
-  $output = "Please fill out the form completely.";
-}
 ?>
 
 <!DOCTYPE html>
