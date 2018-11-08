@@ -130,9 +130,6 @@ $userfName = "Sign In";
                             that are sure to exceed your buying expectations.
 
                             <br>
-                            You will be welcomed by a knowledgeable staff with an average of 15+ years experience in
-                            this exciting industry.
-                            <br>
                             We cherish the opportunity to celebrate the many happy occasions and moments in your lives.
                         </p>
                     </div>
